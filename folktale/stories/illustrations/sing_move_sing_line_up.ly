@@ -73,12 +73,12 @@
         <e' af' df'' gf''>8
         ]
         <ef' e' af' df''>4
-        <as ds' e' gs'>8
+        <bf ef' e' af'>8
         [
-        <cs' e' fs' b'>8
+        <df' e' gf' b'>8
         ]
-        <ds' e' gs' cs''>4
+        <ef' e' af' df''>4
         <b e' e' a'>4
-        <ds' e' gs' cs''>4
+        <ef' e' af' df''>4
     }
 }

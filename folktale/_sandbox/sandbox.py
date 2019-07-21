@@ -3,120 +3,45 @@ import pandas as pd
 
 import abjad, abjadext, calliope
 
+from folktale.lines.sing_line import SingLine
 
 class LineScore(calliope.Score):
 
-    class ViolinStaff(calliope.Staff):
+    class ViolinStaff1(calliope.Staff):
         instrument=abjad.Cello(
             name="Cello", short_name="Vc.")
 
-    class CelloStaff(calliope.Staff):
+    class ViolinStaff2(calliope.Staff):
         instrument=abjad.Cello(
             name="Cello", short_name="Vc.")
+
+    class ViolinStaff3(calliope.Staff):
+        instrument=abjad.Cello(
+            name="Cello", short_name="Vc.")
+
+    class ViolinStaff4(calliope.Staff):
+        instrument=abjad.Cello(
+            name="Cello", short_name="Vc.")
+
+    # class CelloStaff(calliope.Staff):
+    #     instrument=abjad.Cello(
+    #         name="Cello", short_name="Vc.")
 
 #     class PianoStaff(calliope.Piano): pass
 
 
 # s = LinesScore()
 
-
-    
-class SingPhraseA1(calliope.Phrase):
-    respell = "flats"
-    class SingCell1(calliope.Cell):
-        # time_signature = (5, 4)
-        init_rhythm =  (1, .5, .5, 1, .5, .5, 1)
-        init_pitches = (7, 12, 14, 9, 11, 14, 9)
-    class SingCell2(calliope.Cell):
-        # time_signature = (4, 4)
-        init_rhythm =  (.5, .5, 1, 1,  1 )
-        init_pitches = (11,  2, 4, 12, 11)
-
-class SingPhraseA2(SingPhraseA1):
-    class SingCell1(SingPhraseA1.SingCell1):
-        init_pitches = (7, 9, 12, 7, 16, 14, 7)
-
-class SingPhraseB(SingPhraseA1):
-    class SingCell1(calliope.Cell):
-        # time_signature = (5, 4)
-        init_rhythm =  (1, 1, .5, .5, 1, .5, .5)
-        init_pitches = (7, 9, 7, 4, 9, 7, 4)
-    class SingCell2(calliope.Cell):
-        # time_signature = (4, 4)
-        init_rhythm =  (1, 1, 1,  1 )
-        init_pitches = (7, 0, 2, 4)
-
-class SingLine(calliope.Line):
-    phrase1 = SingPhraseA1
-    phrase2 = SingPhraseA2
-    phrase3 = SingPhraseB
-    phrase4 = SingPhraseA1
-
 l = SingLine()
-l["phrase4"]["sing_cell2"].respell = "sharps"
+# for e in l.events:
+#     e.rhythm=(-0.5,0.5)
+l.phrases[0,1,3].setattrs(rhythm = (0.5,1,0.5)*4)
+l.phrases(2).setattrs(rhythm = (0.5,1,0.5)*2 + (0.5,1,1,1,0.5))
 
-
-class SingSeq(calliope.Transform):
-    """
-    transposes an inteveral every time (original) melodic note class is X
-    """
-    interval = -7
-    pitch = 11
-
-    def transform(self, selectable, **kwargs):
-        transpose = 0
-        for event in selectable.note_events:
-            if event.pitch == self.pitch:
-                transpose += self.interval
-            event.pitch = event.pitch + transpose
-
-class AddPitchToChord(calliope.Transform):
-    pitch = 4
-
-    def transform(self, selectable, **kwargs):
-        for event in selectable.note_events:
-            event.pitch.append(self.pitch)
-
-SingSeq().transform(l)
-sing_range = calliope.SmartRange(smart_range=(-3,24))
-sing_range.transform(l)
-
-my_4ths = calliope.StackPitches(intervals=(0,5,10))
-my_4ths.transform(l)
-
-add_e = AddPitchToChord()
-add_e.transform(l)
-
-
-LINE_SMOOTH_TALLY_APPS = (
-    calliope.TallyCircleOfFifthsRange(over_range_multiplier=-120), 
-    calliope.TallyParallelIntervals(interval_ratings=[(0,-60), (7,-20)]), 
-    calliope.TallyMelodicIntervals(
-            interval_ratings=[(0, -100), (1,80), (2,110), (3,80), (4,20), (6,-40), (8,-40), (9,-40), (10,-40), (11,-50), (12,-9)], 
-            over_incremental_multiplier=(12,-120),
-            up_rating=20,
-            down_rating=-9,
-            ),
-    calliope.TallyRepeatedJumps(),
-    )
-
-class MyGrid(calliope.PitchGrid): pass
-
-
-pg_data = pd.DataFrame.from_records(l.pitches).transpose() 
-pg = MyGrid(name="my_grid")
-pg.init_data(start_data=pg_data)
-pg.add_tally_apps()
-pg.add_tally_apps(*LINE_SMOOTH_TALLY_APPS)
-# print(pg.tally_apps)
-# pg.tally_me()
-# pg.save()
-# print(pg.tallies)
-l.pitches = pg.data.transpose().values.tolist()
 l.illustrate_me()
 
-def pitch_calc():
-    pg.tally_loop()
+
+
 
 
 
@@ -130,16 +55,8 @@ def pitch_calc():
 
 # DEVELOPMENT
 
-s = LineScore()
-s.staves[0].append(l)
-# s.staves[1].append(l2)
 
-# LineScore().illustrate_me()
-# s.illustrate_me()
 
-# s.illustrate_me()
-
-print(l[0].name)
 # print(l.ly())
 
 # class MyLine(calliope.Line):
