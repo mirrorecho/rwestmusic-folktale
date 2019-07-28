@@ -5,23 +5,23 @@ import abjad, abjadext, calliope
 
 from folktale.lines.sing_line import SingLine
 
-class LineScore(calliope.Score):
+# class LineScore(calliope.Score):
 
-    class ViolinStaff1(calliope.Staff):
-        instrument=abjad.Cello(
-            name="Cello", short_name="Vc.")
+#     class ViolinStaff1(calliope.Staff):
+#         instrument=abjad.Cello(
+#             name="Cello", short_name="Vc.")
 
-    class ViolinStaff2(calliope.Staff):
-        instrument=abjad.Cello(
-            name="Cello", short_name="Vc.")
+#     class ViolinStaff2(calliope.Staff):
+#         instrument=abjad.Cello(
+#             name="Cello", short_name="Vc.")
 
-    class ViolinStaff3(calliope.Staff):
-        instrument=abjad.Cello(
-            name="Cello", short_name="Vc.")
+#     class ViolinStaff3(calliope.Staff):
+#         instrument=abjad.Cello(
+#             name="Cello", short_name="Vc.")
 
-    class ViolinStaff4(calliope.Staff):
-        instrument=abjad.Cello(
-            name="Cello", short_name="Vc.")
+#     class ViolinStaff4(calliope.Staff):
+#         instrument=abjad.Cello(
+#             name="Cello", short_name="Vc.")
 
     # class CelloStaff(calliope.Staff):
     #     instrument=abjad.Cello(
@@ -29,16 +29,79 @@ class LineScore(calliope.Score):
 
 #     class PianoStaff(calliope.Piano): pass
 
+from folktale.scores.score import FolktaleScore
+s = FolktaleScore()
 
 # s = LinesScore()
 
+# changes pitches by 4ths/5ths, octaves to create a melody I also like
 l = SingLine()
+l["phrase1"]["sing_cell1"].events[0].pitch += 7
+l["phrase1"]["sing_cell1"].events[4].pitch += 5
+
+l["phrase1"]["sing_cell2"].events[0].pitch += 5
+l["phrase1"]["sing_cell2"].events[1].pitch += 12
+l["phrase1"]["sing_cell2"].events[2].pitch += 5
+#  ------
+
+l["phrase2"]["sing_cell1"].events[0].pitch += 7
+l["phrase2"]["sing_cell1"].events[3].pitch += 7
+l["phrase2"]["sing_cell1"].events[5].pitch -= 5
+l["phrase2"]["sing_cell1"].events[6].pitch += 5
+
+l["phrase2"]["sing_cell2"].events[0].pitch += 5
+l["phrase2"]["sing_cell2"].events[1].pitch += 12
+l["phrase2"]["sing_cell2"].events[2].pitch += 5
+#  ------
+
+l["phrase3"]["sing_cell1"].events[2].pitch += 7
+l["phrase3"]["sing_cell1"].events[3].pitch += 12
+l["phrase3"]["sing_cell1"].events[5].pitch += 7
+l["phrase3"]["sing_cell1"].events[6].pitch += 12
+
+l["phrase3"]["sing_cell2"].events[0].pitch += 7
+l["phrase3"]["sing_cell2"].events[1].pitch += 12
+l["phrase3"]["sing_cell2"].events[2].pitch += 7
+l["phrase3"]["sing_cell2"].events[3].pitch += 12
+#  ------
+
+l["phrase4"]["sing_cell1"].events[0].pitch += 7
+l["phrase4"]["sing_cell1"].events[4].pitch += 5
+
+l["phrase4"]["sing_cell2"].events[0].pitch += 5
+l["phrase4"]["sing_cell2"].events[1].pitch += 12
+l["phrase4"]["sing_cell2"].events[2].pitch += 5
+
+s = SingLine()
+# # OK, not great
+# for e1,e2 in zip(s.note_events, l.note_events):
+#     if e1.pitch != e2.pitch:
+#         e1.pitch = [e1.pitch, e2.pitch]
+
+for e1,e2 in zip(s.note_events, l.note_events):
+    e1.pitch = [e1.pitch+2, e2.pitch]
+
+
+
 # for e in l.events:
 #     e.rhythm=(-0.5,0.5)
-l.phrases[0,1,3].setattrs(rhythm = (0.5,1,0.5)*4)
-l.phrases(2).setattrs(rhythm = (0.5,1,0.5)*2 + (0.5,1,1,1,0.5))
+# l.phrases[0,1,3].setattrs(rhythm = (0.5,1,0.5)*4)
+# l.phrases(2).setattrs(rhythm = (0.5,1,0.5)*2 + (0.5,1,1,1,0.5))
 
-l.illustrate_me()
+
+# TO DO: create story for turning line into pulsing rhythm in groups
+# of 9.
+
+
+calliope.SlurCells()(s)
+s.illustrate_me()
+
+
+# calliope.SpanByType(by_type=calliope.Phrase)(l)
+# s.staves["violin1"].append(l)
+# s.illustrate_me()  
+
+# l.illustrate_me()
 
 
 
