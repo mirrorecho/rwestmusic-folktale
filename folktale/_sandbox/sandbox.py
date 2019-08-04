@@ -35,54 +35,107 @@ s = FolktaleScore()
 # s = LinesScore()
 
 # changes pitches by 4ths/5ths, octaves to create a melody I also like
-l = SingLine()
-l["phrase1"]["sing_cell1"].events[0].pitch += 7
-l["phrase1"]["sing_cell1"].events[4].pitch += 5
+l0 = SingLine()
+l1 = SingLine()
 
-l["phrase1"]["sing_cell2"].events[0].pitch += 5
-l["phrase1"]["sing_cell2"].events[1].pitch += 12
-l["phrase1"]["sing_cell2"].events[2].pitch += 5
+l1["phrase0"]["sing_cell0"].events[0].pitch += 7
+l1["phrase0"]["sing_cell0"].events[4].pitch += 5
+
+l1["phrase0"]["sing_cell1"].events[0].pitch += 5
+l1["phrase0"]["sing_cell1"].events[1].pitch += 12
+l1["phrase0"]["sing_cell1"].events[2].pitch += 5
 #  ------
 
-l["phrase2"]["sing_cell1"].events[0].pitch += 7
-l["phrase2"]["sing_cell1"].events[3].pitch += 7
-l["phrase2"]["sing_cell1"].events[5].pitch -= 5
-l["phrase2"]["sing_cell1"].events[6].pitch += 5
+l1["phrase1"]["sing_cell0"].events[0].pitch += 7
+l1["phrase1"]["sing_cell0"].events[3].pitch += 7
+l1["phrase1"]["sing_cell0"].events[5].pitch -= 5
+l1["phrase1"]["sing_cell0"].events[6].pitch += 5
 
-l["phrase2"]["sing_cell2"].events[0].pitch += 5
-l["phrase2"]["sing_cell2"].events[1].pitch += 12
-l["phrase2"]["sing_cell2"].events[2].pitch += 5
+l1["phrase1"]["sing_cell1"].events[0].pitch += 5
+l1["phrase1"]["sing_cell1"].events[1].pitch += 12
+l1["phrase1"]["sing_cell1"].events[2].pitch += 5
 #  ------
 
-l["phrase3"]["sing_cell1"].events[2].pitch += 7
-l["phrase3"]["sing_cell1"].events[3].pitch += 12
-l["phrase3"]["sing_cell1"].events[5].pitch += 7
-l["phrase3"]["sing_cell1"].events[6].pitch += 12
+l1["phrase2"]["sing_cell0"].events[2].pitch += 5
+l1["phrase2"]["sing_cell0"].events[3].pitch += 7
+# l1["phrase2"]["sing_cell0"].events[5].pitch += 7
+# l1["phrase2"]["sing_cell0"].events[6].pitch += 5
 
-l["phrase3"]["sing_cell2"].events[0].pitch += 7
-l["phrase3"]["sing_cell2"].events[1].pitch += 12
-l["phrase3"]["sing_cell2"].events[2].pitch += 7
-l["phrase3"]["sing_cell2"].events[3].pitch += 12
+# l1["phrase2"]["sing_cell1"].events[0].pitch -= 5
+l1["phrase2"]["sing_cell1"].events[1].pitch += 5
+
+l1["phrase2"]["sing_cell1"].events[2].pitch += 7
+# l["phrase2"]["sing_cell1"].events[3].pitch += 12
 #  ------
 
-l["phrase4"]["sing_cell1"].events[0].pitch += 7
-l["phrase4"]["sing_cell1"].events[4].pitch += 5
+l1["phrase3"]["sing_cell0"].events[0].pitch += 7
+l1["phrase3"]["sing_cell0"].events[4].pitch += 5
 
-l["phrase4"]["sing_cell2"].events[0].pitch += 5
-l["phrase4"]["sing_cell2"].events[1].pitch += 12
-l["phrase4"]["sing_cell2"].events[2].pitch += 5
+l1["phrase3"]["sing_cell1"].events[0].pitch += 5
+l1["phrase3"]["sing_cell1"].events[1].pitch += 12
+l1["phrase3"]["sing_cell1"].events[2].pitch += 5
 
-s = SingLine()
-# # OK, not great
-# for e1,e2 in zip(s.note_events, l.note_events):
-#     if e1.pitch != e2.pitch:
-#         e1.pitch = [e1.pitch, e2.pitch]
+# l2 = l0()
 
-for e1,e2 in zip(s.note_events, l.note_events):
-    e1.pitch = [e1.pitch+2, e2.pitch]
+# for e in l0["phrase3"].events:
+#     e.pitch = e.pitch - 7
+
+for e in l1["phrase3"].events:
+    e.pitch = e.pitch - 7
+
+# OK, not great
+# for e1,e0 in zip(l1.note_events, l0.note_events):
+#     if e1.pitch != e0.pitch:
+#         e1.pitch = [e1.pitch, e0.pitch]
+
+# # A little better
+# for e1,e2 in zip(l2.note_events, l1.note_events):
+#     e1.pitch = [e1.pitch+2, e2.pitch]
+#     e1.respell = "sharps"
+
+# for e in l1.events:
+#     e.beats = e.beats / 2
+
+# Pretty good for rhythm
+for p in l1.phrases[0,1,3]:
+    p.rhythm = (0.75, 0.25, 0.5, 0.5)*3
+l1.phrases[2].rhythm = [0.5]*10 + [1]
+
+l2 = l1()
+l2.insert(0, calliope.Phrase(rhythm=(12,), pitches=(None,)))
+l2.pop("phrase1")
+
+#
+for e in l2.select["phrase2","phrase3"].note_events:
+    e.pitch += 5
+
+l1.extend((
+    calliope.Phrase(rhythm=(6,), pitches=(None,)),
+    l1["phrase1"](name="phrase4"),
+    l1["phrase2"](name="phrase5"),
+    l1["phrase3"](name="phrase6"),
+    ))
+
+for e in l1.select["phrase4", "phrase5", "phrase6"].note_events:
+    e.pitch -= 2 
+
+l1.append(SingLine.phrase0(name="phrase7"))
+l1["phrase7"].events[-1].beats=2
+
+l1.append(l1["phrase2"](name="phrase8"))
+l1["phrase8"].events[1,3].setattrs(beats=1)
+
+# calliope.Transpose(interval=-9)(l1.select["phrase7", "phrase8"])
+# l1["phrase7"].transpose(-9)
+
+# for e in l1.select["phrase7", "phrase8"].note_events:
+#     e.pitch -= 9
 
 
 
+
+ # l.events(beats=0.5).setattrs(beats=0.75)
+# l.events(beats=1).setattrs(beats=0.25)
 # for e in l.events:
 #     e.rhythm=(-0.5,0.5)
 # l.phrases[0,1,3].setattrs(rhythm = (0.5,1,0.5)*4)
@@ -92,19 +145,46 @@ for e1,e2 in zip(s.note_events, l.note_events):
 # TO DO: create story for turning line into pulsing rhythm in groups
 # of 9.
 
+# l = calliope.LineBlock()
+# l.extend((l0,l1,l2))
 
-calliope.SlurCells()(s)
-s.illustrate_me()
+# l2["phrase0"]["sing_cell1"].rhythm=(0.5,0.5,1,0.5,0.5)
+
+class Stutter(calliope.Transform):
+    def transform(self, selectable, **kwargs):
+        last_selectable = selectable[-1]
+        my_index = last_selectable.my_index
+        my_parent = last_selectable.parent
+
+        for i, event in enumerate(selectable.events):
+            my_parent.insert(my_index+i+1, event())
+
+
+Stutter()(l0.events[5,6,7])
+
+
+
+# TO DO: Shouldn't have to sublcass just for illustrate_me file location!!!
+class YoLineBlock(calliope.LineBlock): pass
+
+l = YoLineBlock(
+    l0,
+    l1,
+    l2,
+    )
+
+calliope.SlurCells()(l)
+# l.illustrate_me()
 
 
 # calliope.SpanByType(by_type=calliope.Phrase)(l)
 # s.staves["violin1"].append(l)
 # s.illustrate_me()  
 
-# l.illustrate_me()
-
-
-
+# l1.illustrate_me()
+l.illustrate_me(
+#     as_midi=True
+    )
 
 
 
