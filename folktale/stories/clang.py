@@ -3,6 +3,7 @@ import pandas as pd
 
 import abjad, calliope
 from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
+from folktale.stories.move_stack import SingSeq
 
 class Clang(calliope.Event):
     init_rhythm = (1,)
@@ -109,31 +110,47 @@ class ClangPhrase(ClangFactory, calliope.Phrase): pass
 
 # print(p.cells)
 
-s = SingLine()
-Stutter()(s["phrase0"].events[5,6,7])
-Stutter()(s["phrase0"].events[5,6,7])
+# Stutter()(s["phrase0"].events[5,6,7])
+# Stutter()(s["phrase0"].events[5,6,7])
 
-Stutter()(s["phrase0"].events[-2,-1])
-Stutter()(s["phrase0"].events[-2,-1])
+# Stutter()(s["phrase0"].events[-2,-1])
+# Stutter()(s["phrase0"].events[-2,-1])
 
+# class MyLB(calliope.LineBlock): pass
 
+class ClangStory(calliope.CalliopeBase):
+    def tell(self):
+        s = SingLine()
+        s.extend([SingPhraseA1(),SingPhraseB(),SingPhraseA0()])
 
-class MyLB(calliope.LineBlock): pass
+        SingSeq(interval=7, pitch=0).transform(s)
 
-a = MyLB(
-    calliope.Line(
-        ClangPhrase(selectable=s["phrase0"]),
-        ClangPhrase(selectable=s["phrase1"]),
-        ClangPhrase(selectable=s["phrase2"]),
-        ClangPhrase(selectable=s["phrase3"]),
-        ),
-    s,
-)
+        calliope.SmartRange().transform(s)
 
-calliope.SlurCells()(a)
+        s["phrase0"].respell = "sharps"
+        s["phrase1"].respell = "sharps"
+        s["phrase2"].respell = "sharps"
+        s["phrase3"].respell="flats"
 
-a.illustrate_me(
-    as_midi=True
-    )
+        s.insert(0, SingPhraseA0())
+        s.insert(1, SingPhraseA1())
+        s.insert(2, SingPhraseB())
+        s.insert(3, SingPhraseA0())
+
+        clang_line = calliope.Line(
+            *[ClangPhrase(selectable=p) for p in s.phrases]
+            )
+
+        lb = calliope.LineBlock(
+            clang_line,
+            s,
+        )
+
+        calliope.SlurCells()(lb)
+        return lb
+
+# a.illustrate_me(
+#     as_midi=True
+#     )
 
 

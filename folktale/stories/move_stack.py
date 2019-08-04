@@ -3,7 +3,7 @@ import pandas as pd
 
 import abjad, calliope
 
-from folktale.lines.sing_line import SingLine, SingPhraseA1, SingPhraseA2, SingPhraseB
+from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
 from folktale.libraries.tally_apps import (
     LINE_SMOOTH_TALLY_APPS,LINE_SMOOTH_TALLY_APPS2)
 
@@ -17,7 +17,7 @@ class SingSeq(calliope.Transform):
     def transform(self, selectable, **kwargs):
         transpose = 0
         for event in selectable.note_events:
-            if event.pitch == self.pitch:
+            if event.pitch % 12 == self.pitch % 12:
                 transpose += self.interval
             event.pitch = event.pitch + transpose
 
@@ -124,7 +124,7 @@ def tally_sing_up():
 # l = sing_up()
 # print(l.as_pitch_grid().tallies)
 
-sing_up().illustrate_me()
+# sing_up().illustrate_me()
 
 # sing_up_4ths.illustrate_me()
 
