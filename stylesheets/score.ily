@@ -1,3 +1,4 @@
+#(set-default-paper-size "tabloid" 'portrait)
 #(set-global-staff-size 22)
 
 \header {
@@ -13,13 +14,13 @@
             }
         }
     }
-    tagline = "Copyright 2017 Randall West."
+    tagline = "Copyright 2019 Randall West."
 }
 
-  #(set! paper-alist (cons '("10x13" . (cons (* 10 in) (* 13 in))) paper-alist))
+  % #(set! paper-alist (cons '("10x13" . (cons (* 10 in) (* 13 in))) paper-alist))
 
   \paper {
-    #(set-paper-size "10x13")
+    #(set-paper-size "tabloid")
     %#(set-paper-size "letter")
     left-margin = 22\mm
     system-separator-markup = \slashSeparator

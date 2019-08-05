@@ -45,8 +45,9 @@ class FolktaleScore(calliope.Score):
         class S1(calliope.Staff):
             instrument=abjad.Instrument(
                 name="S 1", 
-                markup="S 1",
-                short_name="s.1"
+                markup=abjad.Markup("S 1"),
+                short_name="s.1",
+                short_markup=abjad.Markup("s.1"),
                 )
         class S2(calliope.Staff):
             instrument=abjad.Piano(

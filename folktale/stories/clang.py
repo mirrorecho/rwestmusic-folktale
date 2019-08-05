@@ -121,6 +121,7 @@ class ClangPhrase(ClangFactory, calliope.Phrase): pass
 class ClangStory(calliope.CalliopeBase):
     def tell(self):
         s = SingLine()
+
         s.extend([SingPhraseA1(),SingPhraseB(),SingPhraseA0()])
 
         SingSeq(interval=7, pitch=0).transform(s)
@@ -137,16 +138,33 @@ class ClangStory(calliope.CalliopeBase):
         s.insert(2, SingPhraseB())
         s.insert(3, SingPhraseA0())
 
+        s.events[0].pitch += 5 # SPECIAL case for first event
+
         clang_line = calliope.Line(
             *[ClangPhrase(selectable=p) for p in s.phrases]
+            )
+
+        # TO DO: make this into a factory
+        trem_line = calliope.Line(
+            *[calliope.Phrase(
+                calliope.Cell(
+                    pitches = ([e.pitch for e in p[0].events[1,3,4]],),
+                    rhythm = (p[0].beats,)
+                ),
+                calliope.Cell(
+                    pitches = ([e.pitch for e in p[1].events[-1,-2,-3]],),
+                    rhythm = (p[1].beats,)
+                ),
+            ) for p in s.phrases]
             )
 
         lb = calliope.LineBlock(
             clang_line,
             s,
+            trem_line,
         )
 
-        calliope.SlurCells()(lb)
+        # calliope.SlurCells()(lb)
         return lb
 
 # a.illustrate_me(

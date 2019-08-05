@@ -176,15 +176,19 @@ l = YoLineBlock(
 calliope.SlurCells()(l)
 # l.illustrate_me()
 
+c = calliope.Cell(pitches=((1,2,3),), rhythm=(4,))
+c.illustrate_me()
+
+
 
 # calliope.SpanByType(by_type=calliope.Phrase)(l)
 # s.staves["violin1"].append(l)
 # s.illustrate_me()  
 
 # l1.illustrate_me()
-l.illustrate_me(
-#     as_midi=True
-    )
+# l.illustrate_me(
+# #     as_midi=True
+#     )
 
 
 
