@@ -185,9 +185,17 @@ def sing_crunch_lb(**kwargs):
 
     return lb
 
-lb = sing_crunch_lb()
-calliope.SlurCells()(lb)
-lb.illustrate_me()
+class SingCrunchLine(calliope.Line): pass
+
+def sing_chords_line(**kwargs):
+    my_list = sing_crunch_list(**kwargs)
+
+    return SingCrunchLine(*[p.selectable() for p in my_list])
+
+
+# lb = sing_crunch_lb()
+# calliope.SlurCells()(lb)
+# lb.illustrate_me()
 
 
 

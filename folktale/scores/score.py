@@ -38,16 +38,19 @@ class FolktaleScore(calliope.Score):
 
         class Bass(calliope.Staff):
             instrument=abjad.Cello(
-                name="Bass", short_name="vc.")
+                name="Bass", short_name="cb.")
             clef="bass"
 
     class ShortScore(calliope.StaffGroup):
+        class S0(calliope.Staff):
+            instrument=abjad.Instrument(
+                name="S 0", 
+                short_name="s.0",
+                )
         class S1(calliope.Staff):
             instrument=abjad.Instrument(
                 name="S 1", 
-                markup=abjad.Markup("S 1"),
                 short_name="s.1",
-                short_markup=abjad.Markup("s.1"),
                 )
         class S2(calliope.Staff):
             instrument=abjad.Piano(

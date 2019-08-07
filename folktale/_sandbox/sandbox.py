@@ -174,10 +174,10 @@ l = YoLineBlock(
     )
 
 calliope.SlurCells()(l)
-# l.illustrate_me()
+l.illustrate_me()
 
-c = calliope.Cell(pitches=((1,2,3),), rhythm=(4,))
-c.illustrate_me()
+# c = calliope.Cell(pitches=((1,2,3),), rhythm=(4,))
+# c.illustrate_me()
 
 
 
