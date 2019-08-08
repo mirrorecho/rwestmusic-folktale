@@ -49,6 +49,8 @@ class MoveStory(calliope.CalliopeBase):
     smart_range=(-3,24)
     stack_intervals=(10,5,0)
     add_pitches=(3,)
+    pitch_grid_type = calliope.PitchGrid # TO DO: this is nasty
+    pitch_ranges = None
 
     @property
     def row_count(self):
@@ -78,7 +80,10 @@ class MoveStory(calliope.CalliopeBase):
 
     def as_pitch_grid(self, tally_apps=()):
         pg_data = pd.DataFrame.from_records(self.selectable.pitches).transpose() 
-        pg = calliope.PitchGrid(name=self.name or getattr(self.selectable, "name", None))
+        pg = self.pitch_grid_type(
+            name=self.name or getattr(self.selectable, "name", None),
+            pitch_ranges = self.pitch_ranges,
+            )
         pg.init_data(start_data=pg_data)
         pg.add_tally_apps(*self.tally_apps)
         pg.tally_me()
@@ -146,11 +151,13 @@ def sing_move():
     l.tell1()
     return l
 
-def sing_crunch(phrase, add_pitches=(-2,), **kwargs):
+def sing_crunch(phrase, 
+    **kwargs):
+
     l = MoveStory(
         selectable=phrase, 
         tally_apps=LINE_SMOOTH_TALLY_APPS2,
-        add_pitches=add_pitches,
+        **kwargs
         )
     l.tell2()
     l.update_smart_ranges_rows()

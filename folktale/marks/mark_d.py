@@ -4,20 +4,16 @@ from folktale.scores.score import FolktaleScore
 # from folktale.stories.clang import ClangStory
 from folktale.stories.arranger import Arranger
 from folktale.stories import move_stack
-from folktale.stories import sing_stack
-
-from folktale.libraries import pitch_range_helpers
 
 # TO DO: this is nasty
 class PitchGridC(calliope.PitchGrid): pass
 
 MOVE_STACK_KWARGS = dict(
     pitch_grid_type=PitchGridC,
-    add_pitches=[p -6 for p in sing_stack.SING_CELLS_PITCHES_GROUP_2[-1][1:2]],
-    pitch_ranges = pitch_range_helpers.midhigh_string_ranges(),
+    add_pitches=[p -6 for p in sing_stack.SING_CELLS_PITCHES_GROUP_2[-1][0:2]],
     )
 
-def tally_phrase(index, pitch_ranges=mid):
+def tally_phrase(index):
     move_stack.tally_sing_crunch(index, **MOVE_STACK_KWARGS)
 
 a = Arranger(
@@ -50,6 +46,6 @@ a.block_to_short_score()
 
 # Poke(selection=s0.phrases[3,4])(s0)
 
-a.score["short_score"].illustrate_me(
-    # as_midi=True,
+a.score.illustrate_me(
+    as_midi=True,
     )

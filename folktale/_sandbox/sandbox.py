@@ -39,41 +39,44 @@ l0 = SingLine()
 l1 = SingLine()
 
 l1["phrase0"]["sing_cell0"].events[0].pitch += 7
-l1["phrase0"]["sing_cell0"].events[4].pitch += 5
-
 l1["phrase0"]["sing_cell1"].events[0].pitch += 5
-l1["phrase0"]["sing_cell1"].events[1].pitch += 12
-l1["phrase0"]["sing_cell1"].events[2].pitch += 5
+
+l1["phrase0"]["sing_cell2"].events[0].pitch += 5
+l1["phrase0"]["sing_cell2"].events[1].pitch += 12
+l1["phrase0"]["sing_cell2"].events[2].pitch += 5
 #  ------
 
 l1["phrase1"]["sing_cell0"].events[0].pitch += 7
 l1["phrase1"]["sing_cell0"].events[3].pitch += 7
-l1["phrase1"]["sing_cell0"].events[5].pitch -= 5
-l1["phrase1"]["sing_cell0"].events[6].pitch += 5
 
-l1["phrase1"]["sing_cell1"].events[0].pitch += 5
-l1["phrase1"]["sing_cell1"].events[1].pitch += 12
+l1["phrase1"]["sing_cell1"].events[1].pitch -= 5
 l1["phrase1"]["sing_cell1"].events[2].pitch += 5
+
+l1["phrase1"]["sing_cell2"].events[0].pitch += 5
+l1["phrase1"]["sing_cell2"].events[1].pitch += 12
+l1["phrase1"]["sing_cell2"].events[2].pitch += 5
 #  ------
 
 l1["phrase2"]["sing_cell0"].events[2].pitch += 5
 l1["phrase2"]["sing_cell0"].events[3].pitch += 7
-# l1["phrase2"]["sing_cell0"].events[5].pitch += 7
-# l1["phrase2"]["sing_cell0"].events[6].pitch += 5
 
-# l1["phrase2"]["sing_cell1"].events[0].pitch -= 5
-l1["phrase2"]["sing_cell1"].events[1].pitch += 5
+# l1["phrase2"]["sing_cell1"].events[1].pitch += 7
+# l1["phrase2"]["sing_cell1"].events[2].pitch += 5
 
-l1["phrase2"]["sing_cell1"].events[2].pitch += 7
-# l["phrase2"]["sing_cell1"].events[3].pitch += 12
+# l1["phrase2"]["sing_cell2"].events[0].pitch -= 5
+l1["phrase2"]["sing_cell2"].events[1].pitch += 5
+
+l1["phrase2"]["sing_cell3"].events[0].pitch += 7
+# l["phrase2"]["sing_cell3"].events[1].pitch += 12
 #  ------
 
 l1["phrase3"]["sing_cell0"].events[0].pitch += 7
-l1["phrase3"]["sing_cell0"].events[4].pitch += 5
 
 l1["phrase3"]["sing_cell1"].events[0].pitch += 5
-l1["phrase3"]["sing_cell1"].events[1].pitch += 12
-l1["phrase3"]["sing_cell1"].events[2].pitch += 5
+
+l1["phrase3"]["sing_cell2"].events[0].pitch += 5
+l1["phrase3"]["sing_cell2"].events[1].pitch += 12
+l1["phrase3"]["sing_cell2"].events[2].pitch += 5
 
 # l2 = l0()
 
@@ -101,6 +104,8 @@ for p in l1.phrases[0,1,3]:
     p.rhythm = (0.75, 0.25, 0.5, 0.5)*3
 l1.phrases[2].rhythm = [0.5]*10 + [1]
 
+
+
 l2 = l1()
 l2.insert(0, calliope.Phrase(rhythm=(12,), pitches=(None,)))
 l2.pop("phrase1")
@@ -125,13 +130,12 @@ l1["phrase7"].events[-1].beats=2
 l1.append(l1["phrase2"](name="phrase8"))
 l1["phrase8"].events[1,3].setattrs(beats=1)
 
+
 # calliope.Transpose(interval=-9)(l1.select["phrase7", "phrase8"])
 # l1["phrase7"].transpose(-9)
 
 # for e in l1.select["phrase7", "phrase8"].note_events:
 #     e.pitch -= 9
-
-
 
 
  # l.events(beats=0.5).setattrs(beats=0.75)
@@ -163,7 +167,6 @@ class Stutter(calliope.Transform):
 Stutter()(l0.events[5,6,7])
 
 
-
 # TO DO: Shouldn't have to sublcass just for illustrate_me file location!!!
 class YoLineBlock(calliope.LineBlock): pass
 
@@ -174,7 +177,8 @@ l = YoLineBlock(
     )
 
 calliope.SlurCells()(l)
-l.illustrate_me()
+
+# l.illustrate_me()
 
 # c = calliope.Cell(pitches=((1,2,3),), rhythm=(4,))
 # c.illustrate_me()

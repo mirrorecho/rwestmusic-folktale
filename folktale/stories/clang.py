@@ -148,12 +148,12 @@ class ClangStory(calliope.CalliopeBase):
         trem_line = calliope.Line(
             *[calliope.Phrase(
                 calliope.Cell(
-                    pitches = ([e.pitch for e in p[0].events[1,3,4]],),
-                    rhythm = (p[0].beats,)
+                    pitches = ([e.pitch for e in p.events[1,3,4]],),
+                    rhythm = (p[0].beats + p[1].beats,)
                 ),
                 calliope.Cell(
-                    pitches = ([e.pitch for e in p[1].events[-1,-2,-3]],),
-                    rhythm = (p[1].beats,)
+                    pitches = ([e.pitch for e in p.events[-1,-2,-3]],),
+                    rhythm = (p[2].beats + p[3].beats,)
                 ),
             ) for p in s.phrases]
             )
