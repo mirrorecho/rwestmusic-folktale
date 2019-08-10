@@ -32,7 +32,7 @@ class Stutter(calliope.Transform):
 
 
 # TO DO MAYBE: consider reviving:
-class ClangFactory(calliope.FromSelectableFactory):
+class ClangPhrase(calliope.FromSelectableFactory, calliope.Phrase):
 
     def get_clang_pitches(self):
         return {
@@ -56,7 +56,7 @@ class ClangFactory(calliope.FromSelectableFactory):
             if p % 12 == pitch_class:
                 return d
 
-    # in this context, a granch is a CELL
+    # in this context, a branch is a CELL
     def get_branch(self, node, *args, **kwargs):
 
         my_events=[]
@@ -100,75 +100,40 @@ class ClangFactory(calliope.FromSelectableFactory):
 
         return calliope.Cell(*my_events)
 
-class ClangPhrase(ClangFactory, calliope.Phrase): pass
 
-# p = ClangPhrase(selectable=SingPhraseA0())
-# calliope.SlurCells()(p)
-
-# p.illustrate_me()
-
-
-# print(p.cells)
-
-# Stutter()(s["phrase0"].events[5,6,7])
-# Stutter()(s["phrase0"].events[5,6,7])
-
-# Stutter()(s["phrase0"].events[-2,-1])
-# Stutter()(s["phrase0"].events[-2,-1])
-
-# class MyLB(calliope.LineBlock): pass
-
-class ClangStory(calliope.CalliopeBase):
-    def tell(self):
-        s = SingLine()
-
-        s.extend([SingPhraseA1(),SingPhraseB(),SingPhraseA0()])
-
-        SingSeq(interval=7, pitch=0).transform(s)
-
-        calliope.SmartRange().transform(s)
-
-        s["phrase0"].respell = "sharps"
-        s["phrase1"].respell = "sharps"
-        s["phrase2"].respell = "sharps"
-        s["phrase3"].respell="flats"
-
-        s.insert(0, SingPhraseA0())
-        s.insert(1, SingPhraseA1())
-        s.insert(2, SingPhraseB())
-        s.insert(3, SingPhraseA0())
-
-        s.events[0].pitch += 5 # SPECIAL case for first event
-
-        clang_line = calliope.Line(
-            *[ClangPhrase(selectable=p) for p in s.phrases]
-            )
-
-        # TO DO: make this into a factory
-        trem_line = calliope.Line(
-            *[calliope.Phrase(
-                calliope.Cell(
-                    pitches = ([e.pitch for e in p.events[1,3,4]],),
-                    rhythm = (p[0].beats + p[1].beats,)
-                ),
-                calliope.Cell(
-                    pitches = ([e.pitch for e in p.events[-1,-2,-3]],),
-                    rhythm = (p[2].beats + p[3].beats,)
-                ),
-            ) for p in s.phrases]
-            )
-
-        lb = calliope.LineBlock(
-            clang_line,
-            s,
-            trem_line,
+class ClangChordsLine(calliope.FromSelectableFactory, calliope.Line):
+    chord_indices = (
+            (1,3,4),
+            (-1,-2,-3),
         )
 
-        # calliope.SlurCells()(lb)
-        return lb
+    # in this case, node is a Phrase
+    def get_branch(self, node, *args, **kwargs):
+        return calliope.Phrase(
+                calliope.Cell(
+                    pitches = (sorted([e.pitch for e in node.events[self.chord_indices[0]]]),),
+                    rhythm = (node[0].beats + node[1].beats,)
+                ),
+                calliope.Cell(
+                    pitches = (sorted([e.pitch for e in node.events[self.chord_indices[1]]]),),
+                    rhythm = (node[2].beats + node[3].beats,)
+                ),
+            )
 
-# a.illustrate_me(
-#     as_midi=True
-#     )
+
+class ClangBlock(calliope.FromSelectableFactory, calliope.LineBlock):
+    clang_phrase_type = ClangPhrase
+    clang_chords_line_type = ClangChordsLine
+
+    def get_branches(self, *args, **kwargs):
+        return [
+            calliope.Line(
+                *[self.clang_phrase_type(p) for p in self.selectable.phrases]
+            ),
+            self.selectable(),
+            self.clang_chords_line_type(self.selectable),
+        ]
+
+
 
 

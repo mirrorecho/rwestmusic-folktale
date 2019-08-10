@@ -3,24 +3,72 @@ import abjad, calliope
 from folktale.scores.score import FolktaleScore
 # from folktale.stories.clang import ClangStory
 from folktale.stories.arranger import Arranger
+from folktale.libraries import tally_apps
 from folktale.stories import move_stack
 from folktale.stories import sing_stack
+
 
 from folktale.libraries import pitch_range_helpers
 
 class StackC(move_stack.SingMoveStack): pass
 
-class BlockC(ChordsToBlock, calliope.LineBlock): pass
+class BlockC(move_stack.ChordsToBlock): pass
 
 # TO DO; this extra inheritance is nasty
-class GridC(calliope.PitchesThroughGrid, calliope.LineBlock): pass
+class GridC(calliope.PitchesThroughGrid, calliope.PhraseBlock): pass
 
-MOVE_BLOCK_GRID = MoveBlockGrid(MOVE_BLOCK,
-    tally_apps=LINE_SMOOTH_TALLY_APPS2,
-    )
+STACK_C = StackC()
+move_stack.SingSeq()(STACK_C)
+move_stack.MoveStack(
+    stack_intervals=(10,5,0),
+    add_pitches = (-2,),
+    )(STACK_C)
+
+BLOCK_C = BlockC(STACK_C)
+
+BLOCK_C_GRIDS = [
+    GridC(pb, 
+        name="mark_c_"+ pb.name,
+        tally_apps = tally_apps.LINE_SMOOTH_TALLY_APPS2,
+        pitch_ranges = pitch_range_helpers.midhigh_string_ranges()
+        ) for pb in BLOCK_C.to_block_list()
+]
+
+BLOCK_C_GRIDS[2][0].respell = "sharps"
 
 
-# StackC().illustrate_me()
+BLOCK_C_GRIDS[3][0].respell = "sharps"
+BLOCK_C_GRIDS[3][1][-2].respell = "sharps"
+BLOCK_C_GRIDS[3][1][-1].respell = "sharps"
+BLOCK_C_GRIDS[3][2].respell = "sharps"
+BLOCK_C_GRIDS[3][3].respell = "sharps"
+
+class LineBlockC(calliope.LineBlock): pass
+
+FINAL_BLOCK_C = LineBlockC.from_block_list(BLOCK_C_GRIDS)
+
+
+def show_final_block():
+    calliope.PhrasePhrases()(FINAL_BLOCK_C)
+    calliope.Label()(FINAL_BLOCK_C[0].phrases)
+    FINAL_BLOCK_C.illustrate_me()
+
+show_final_block()
+
+
+# calliope.SlurCells()(FINAL_BLOCK_C)
+
+# print(FINAL_BLOCK_C[0][0])
+
+
+
+
+
+# FINAL_BLOCK_C.illustrate_me()
+
+
+
+# MOVE_BLOCK_GRID.illustrate_me()
 
 # MOVE_STACK_KWARGS = dict(
 #     pitch_grid_type=PitchGridC,

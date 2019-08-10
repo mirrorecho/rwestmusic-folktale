@@ -154,14 +154,6 @@ l1["phrase8"].events[1,3].setattrs(beats=1)
 
 # l2["phrase0"]["sing_cell1"].rhythm=(0.5,0.5,1,0.5,0.5)
 
-class Stutter(calliope.Transform):
-    def transform(self, selectable, **kwargs):
-        last_selectable = selectable[-1]
-        my_index = last_selectable.my_index
-        my_parent = last_selectable.parent
-
-        for i, event in enumerate(selectable.events):
-            my_parent.insert(my_index+i+1, event())
 
 
 Stutter()(l0.events[5,6,7])

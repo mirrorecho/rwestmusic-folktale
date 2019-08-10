@@ -11,23 +11,23 @@
 
 \score {
     {
-        f''4
-        e'8
+        af4
+        af8
         [
-        e'8
+        af8
         ]
-        a'4
-        e'8
+        af4
+        af8
         [
-        e'8
+        af8
         ]
-        a'4
-        b'8
+        af4
+        af8
         [
-        e'8
+        af8
         ]
-        e'4
-        e'4
-        e'4
+        af4
+        af4
+        af4
     }
 }

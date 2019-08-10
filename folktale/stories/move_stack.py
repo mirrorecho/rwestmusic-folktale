@@ -23,7 +23,7 @@ class SingSeq(calliope.Transform):
                 transpose += self.interval
             event.pitch = event.pitch + transpose
 
-        calliope.SmartRange(smart_range=self.smart_range)()
+        calliope.SmartRange(smart_range=self.smart_range)(selectable)
 
 
 class AddPitchesToChords(calliope.Transform):
@@ -42,7 +42,7 @@ class ChordSelect(calliope.Transform):
             event.pitch = event.pitch[self.index]
 
 
-class ChordsToBlock(calliope.FromSelectableFactory):
+class ChordsToBlock(calliope.FromSelectableFactory, calliope.LineBlock):
 
     def get_branch(self, node, index, *args, **kwargs):
         return node(*args, **kwargs).transformed(ChordSelect(index=index))
@@ -56,13 +56,13 @@ class MoveStack(calliope.Transform):
     stack_intervals=(10,5,0)
     add_pitches=(3,)
 
-    @property
-    def row_count(self):
-        return len(self.stack_intervals) + len(self.add_pitches)
+    # @property
+    # def row_count(self):
+    #     return len(self.stack_intervals) + len(self.add_pitches)
 
     def transform(self, selectable, **kwargs):
         calliope.StackPitches(intervals=self.stack_intervals)(selectable)
-        AddPitchesToChords(self.add_pitches)(selectable)
+        AddPitchesToChords(pitches = self.add_pitches)(selectable)
 
 
 class SingMoveStack(calliope.Line):
@@ -74,19 +74,17 @@ class SingMoveStack(calliope.Line):
     move_phrase_b_1 = SingPhraseB
     move_phrase_a0_2 = SingPhraseA0
 
-    move_me = MoveStack
+    # seq_me = SingSeq
+    # move_me = MoveStack
 
 
-class SingMoveBlock(ChordsToBlock, calliope.LineBlock): pass
 
-class MoveBlockGrid(calliope.PitchesThroughGrid, calliope.LineBlock): pass
+# as a test...
+# MOVE_BLOCK = ChordsToBlock(selectable=SingMoveStack()[0])
 
-
-MOVE_BLOCK = SingMoveBlock(selectable=SingMoveStack()[0])
-
-MOVE_BLOCK_GRID = MoveBlockGrid(MOVE_BLOCK,
-    tally_apps=LINE_SMOOTH_TALLY_APPS2,
-    )
+# MOVE_BLOCK_GRID = MoveBlockGrid(MOVE_BLOCK,
+#     tally_apps=LINE_SMOOTH_TALLY_APPS2,
+#     )
 
 
 # print(MOVE_BLOCK_GRID.data)
