@@ -51,7 +51,9 @@ FINAL_BLOCK_C = LineBlockC.from_block_list(BLOCK_C_GRIDS)
 def show_final_block():
     calliope.PhrasePhrases()(FINAL_BLOCK_C)
     calliope.Label()(FINAL_BLOCK_C[0].phrases)
-    FINAL_BLOCK_C.illustrate_me()
+    FINAL_BLOCK_C.illustrate_me(
+        as_midi=True,
+        )
 
 show_final_block()
 

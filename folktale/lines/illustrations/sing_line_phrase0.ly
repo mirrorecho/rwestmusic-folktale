@@ -11,23 +11,29 @@
 
 \score {
     {
-        <bf g' c'' f''>4
-        <bf c'' f'' bf''>8
+        d''8.
         [
-        <bf d'' g'' c'''>8
+        c''16
         ]
-        <bf a' d'' g''>4
-        <bf e' a' d''>8
+        d''8
         [
-        <bf g' c'' f''>8
+        a'8
         ]
-        <bf d' g' c''>4
-        <a bf d' g'>8
+        e''8.
         [
-        <bf c' f' bf'>8
+        d''16
         ]
-        <bf d' g' c''>4
-        <bf bf ef' af'>4
-        <bf d' g' c''>4
+        a'8
+        [
+        e''8
+        ]
+        d''8.
+        [
+        a'16
+        ]
+        c''8
+        [
+        b'8
+        ]
     }
 }

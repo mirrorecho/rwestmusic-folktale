@@ -24,7 +24,7 @@ STACK_F = LineF()
 jig.JigPitches()(STACK_F)
 jig.JigRhythm()(STACK_F)
 
-STACK_F.extend(STACK_F())
+STACK_F.extend(STACK_F()[:-1])
 
 # move_stack.SingSeq()(STACK_D)
 
@@ -55,7 +55,9 @@ FINAL_BLOCK_F = LineBlockF.from_block_list(BLOCK_F_GRIDS)
 def show_final_block():
     calliope.PhrasePhrases()(FINAL_BLOCK_F)
     calliope.Label()(FINAL_BLOCK_F[0].phrases)
-    FINAL_BLOCK_F.illustrate_me()
+    FINAL_BLOCK_F.illustrate_me(
+        as_midi=True
+        )
 
 show_final_block()
 

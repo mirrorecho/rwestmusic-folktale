@@ -68,6 +68,71 @@ class JigRhythm(calliope.Transform):
             p.rhythm = (0.75, 0.25, 0.5, 0.5)*3
         selectable.phrases[2].rhythm = [0.5]*10 + [1]
 
+class JigHarmony(calliope.Transform):
+
+    def get_harmonizations(self):
+        return {}
+    # returns a dictionary of note_event indices and harmonies in such as:
+    # {
+    #     0:"up_major",
+    #     3:"down_minor",
+    # }
+
+    def up_major(self, e):
+        e.pitch = [e.pitch + i for i in [0,4,7]]
+
+    def down_major(self, e):
+        e.pitch = [e.pitch - i for i in [0,3,7]]
+
+    def mid_major(self, e):
+        e.pitch = [e.pitch + i for i in [-4,0,3]]
+
+    def up_minor(self, e):
+        e.pitch = [e.pitch + i for i in [0,3,7]]
+
+    def down_minor(self, e):
+        e.pitch = [e.pitch - i for i in [0,4,7]]
+
+    def mid_minor(self, e):
+        e.pitch = [e.pitch + i for i in [-3,0,4]]
+
+    def rest(self, e):
+        e.rest = True
+
+    def transform(self, selectable, **kwargs):
+        calliope.Label()(selectable.note_events)
+
+        for i,e in enumerate(selectable.note_events):
+            getattr(self, self.get_harmonizations().get(i, "rest"))(e)
+
+
+class JigHarmony0(JigHarmony):
+    def get_harmonizations(self):
+        return {
+            0:"up_minor",
+            3:"up_minor",
+            4:"down_minor",
+            7:"down_minor",
+            8:"up_minor",
+            10:"up_major"
+        }
+
+class JigHarmony2(JigHarmony):
+    def get_harmonizations(self):
+        return {
+            0:"down_major",
+            1:"mid_major",
+            2:"down_major",
+            # 3:"up_minor",
+            4:"mid_major",
+            5:"down_major",
+            6:"mid_major",
+            7:"down_major",
+            8:"up_minor",
+            9:"up_minor",
+            10:"up_major"
+        }
+
 # l = SingLine().transformed(JigPitches(), JigRhythm())
 
 # l.illustrate_me()
@@ -78,9 +143,72 @@ class JigBlock(calliope.FromSelectableFactory, calliope.LineBlock):
         return node(*args, **kwargs)
 
     def get_branches(self, *args, **kwargs):
-        my_lines = [
-        ]
-        return my_lines
+        l0 = self.selectable()
+
+        l1 = self.selectable().transformed(JigPitches(), JigRhythm())
+        
+        l2 = l1()
+        l2.insert(0, calliope.Phrase(rhythm=(12,), pitches=(None,)))
+        l2.pop("phrase1")
+        l2.append(l1["phrase2"](name="phrase4"))
+
+        for e in l2.select["phrase2","phrase3"].note_events:
+            e.pitch += 5
+
+        for e in l2.select["phrase4"].note_events:
+            e.pitch -= 2
+
+
+        l1.extend((
+            calliope.Phrase(rhythm=(6,), pitches=(None,)),
+            l1["phrase1"](name="phrase4"),
+            l1["phrase2"](name="phrase5"),
+            l1["phrase3"](name="phrase6"),
+            ))
+
+        for e in l1.select["phrase4", "phrase5", "phrase6"].note_events:
+            e.pitch -= 2 
+
+        #  TO DO: what is this about?
+        # l1.append(SingLine.phrase0(name="phrase7"))
+        # l1["phrase7"].events[-1].beats=2
+
+        # l1.append(l1["phrase2"](name="phrase8"))
+        # l1["phrase8"].events[1,3].setattrs(beats=1)
+
+        return [
+            # l0, 
+            l1, 
+            l2,
+            ]
+
+class JigHarmonizedBlock(JigBlock):
+    def get_branches(self, *args, **kwargs):
+        my_block_list = super().get_branches(*args, **kwargs)
+        harmony0 = my_block_list[0]()
+        JigHarmony0()(harmony0[0])
+        JigHarmony0()(harmony0[1])    
+        JigHarmony2()(harmony0[2])  
+        JigHarmony0()(harmony0[3])        
+
+        harmony1 = my_block_list[1]()
+        JigHarmony0()(harmony1[1])
+
+        my_block_list.extend([harmony0, harmony1])
+        return my_block_list
+
+# j = JigBlock(SingLine())
+# for n in j.note_events:
+#     n.pitch+=1
+
+# j.illustrate_me(
+#     as_midi=True
+#     )
+
+
+
+
+
 
 
 
@@ -106,30 +234,8 @@ class JigBlock(calliope.FromSelectableFactory, calliope.LineBlock):
 
 
 
-
-# l2 = l1()
-# l2.insert(0, calliope.Phrase(rhythm=(12,), pitches=(None,)))
-# l2.pop("phrase1")
-
 # #
-# for e in l2.select["phrase2","phrase3"].note_events:
-#     e.pitch += 5
 
-# l1.extend((
-#     calliope.Phrase(rhythm=(6,), pitches=(None,)),
-#     l1["phrase1"](name="phrase4"),
-#     l1["phrase2"](name="phrase5"),
-#     l1["phrase3"](name="phrase6"),
-#     ))
-
-# for e in l1.select["phrase4", "phrase5", "phrase6"].note_events:
-#     e.pitch -= 2 
-
-# l1.append(SingLine.phrase0(name="phrase7"))
-# l1["phrase7"].events[-1].beats=2
-
-# l1.append(l1["phrase2"](name="phrase8"))
-# l1["phrase8"].events[1,3].setattrs(beats=1)
 
 
 # calliope.Transpose(interval=-9)(l1.select["phrase7", "phrase8"])

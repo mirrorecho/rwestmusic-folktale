@@ -51,3 +51,88 @@ class SingLine(calliope.Line):
 
 
 
+class CounterPhraseA0(calliope.Phrase):
+    class CounterCell0(calliope.Cell):
+        # time_signature = (5, 4)
+        init_rhythm =  (2,1)
+        init_pitches = (-5,-6)
+    class CounterCell1(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (1,1)
+        init_pitches = (-5,-6)
+    class CounterCell2(calliope.Cell):
+        # time_signature = (5, 4)
+        init_rhythm =  (1.5, 1.5)
+        init_pitches = (-5, -12) # NOTE: going up an octave here is also nice
+    class CounterCell3(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (1,  1 )
+        init_pitches = (-10, -8)
+
+class CounterPhraseB(calliope.Phrase):
+    class CounterCell0(calliope.Cell):
+        # time_signature = (5, 4)
+        init_rhythm =  (.5,1,0.5)
+        init_pitches = (-6,-3,-1)
+    class CounterCell1(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (1.5, 0.5)
+        init_pitches = (0, -1)
+    class CounterCell2(calliope.Cell):
+        # time_signature = (5, 4)
+        init_rhythm =  (.5, 1)
+        init_pitches = (-5, -6)
+    class CounterCell3(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (1.5,)
+        init_pitches = (-8, )
+
+class CounterPhraseA1(CounterPhraseA0): 
+    class CounterCell3(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (1,  3 )
+        init_pitches = (-13, -12)
+
+class CounterPhraseC(calliope.Phrase): 
+    class CounterCell0(calliope.Cell):
+        # time_signature = (5, 4)
+        init_rhythm =  (1,)
+        init_pitches = (-6,)
+    class CounterCell1(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (1,1)
+        init_pitches = (-5,-6)
+    class CounterCell2(calliope.Cell):
+        # time_signature = (4, 4)
+        init_rhythm =  (2,2)
+        init_pitches = (-5,-8)
+
+
+class CounterLine(calliope.Line):
+    phrase0 = CounterPhraseA0
+    phrase1 = CounterPhraseB
+    phrase2 = CounterPhraseA1
+    phrase3 = CounterPhraseC
+
+class SingBlock(calliope.LineBlock):
+    sing_line = SingLine
+    counter_line = CounterLine
+
+s = SingBlock().transformed(calliope.SlurCells())
+for p in s[1].phrases[0,2]:
+    for e in p.note_events[:-3]:
+        e.pitch -= 12
+
+
+# calliope.Label()(s[0].phrases)
+# calliope.Label()(s[1].phrases)
+
+# class SingBlockStaffGroup(calliope.StaffGroup): pass
+
+# sg = SingBlockStaffGroup(
+#     calliope.Staff(s[0]()),
+#     calliope.Staff(s[1](), clef="bass"),
+#     )
+# sg.illustrate_me(
+#     as_midi=True
+#     )

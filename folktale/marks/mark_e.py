@@ -49,10 +49,17 @@ class LineBlockE(calliope.LineBlock): pass
 
 FINAL_BLOCK_E = LineBlockE.from_block_list(BLOCK_E_GRIDS)
 
+for l in FINAL_BLOCK_E:
+    l.phrases[-2:].events[:-1].setattrs(beats=0.5)
+    l.events[-1].beats=4
+
+
 def show_final_block():
     calliope.PhrasePhrases()(FINAL_BLOCK_E)
     calliope.Label()(FINAL_BLOCK_E[0].phrases)
-    FINAL_BLOCK_E.illustrate_me()
+    FINAL_BLOCK_E.illustrate_me(
+        as_midi=True
+        )
 
 show_final_block()
 

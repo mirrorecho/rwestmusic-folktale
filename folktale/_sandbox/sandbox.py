@@ -156,7 +156,7 @@ l1["phrase8"].events[1,3].setattrs(beats=1)
 
 
 
-Stutter()(l0.events[5,6,7])
+# Stutter()(l0.events[5,6,7])
 
 
 # TO DO: Shouldn't have to sublcass just for illustrate_me file location!!!
@@ -170,7 +170,7 @@ l = YoLineBlock(
 
 calliope.SlurCells()(l)
 
-# l.illustrate_me()
+l.illustrate_me()
 
 # c = calliope.Cell(pitches=((1,2,3),), rhythm=(4,))
 # c.illustrate_me()

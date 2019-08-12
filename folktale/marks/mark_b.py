@@ -86,10 +86,13 @@ a = Arranger(
         )
     )
 
+class ClassClangBlockB(ClangBlock):pass
+
+a = Arranger(
+    line_block = ClassClangBlockB(get_line())
+    )
+
 a.block_to_short_score()
-
-calliope.SlurCells()(a.score.staff_groups("short_score"))
-
-a.score.illustrate_me(
-    # as_midi=True,
+a.line_block.illustrate_me(
+    as_midi=True
     )

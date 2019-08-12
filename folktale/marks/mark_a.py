@@ -57,14 +57,19 @@ def get_line():
     return s
 
 
+class ClassClangBlockA(ClangBlock):pass
+
 a = Arranger(
-    line_block = ClangBlock(get_line())
+    line_block = ClassClangBlockA(get_line())
     )
 
 a.block_to_short_score()
+a.line_block.illustrate_me(
+    as_midi=True
+    )
 
 calliope.SlurCells()(a.score.staff_groups("short_score"))
 
-a.score.illustrate_me(
-    # as_midi=True,
-    )
+# a.score.illustrate_me(
+#     as_midi=True,
+#     )
