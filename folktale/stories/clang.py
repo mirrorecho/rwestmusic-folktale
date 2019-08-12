@@ -1,9 +1,13 @@
 import numpy as np
 import pandas as pd
 
+
 import abjad, calliope
+
+from folktale.stories import folk
 from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
 from folktale.stories.move_stack import SingSeq
+
 
 class Clang(calliope.Event):
     init_rhythm = (1,)
@@ -19,16 +23,6 @@ class ClangC(Clang):
 
 class ClangG(Clang):
     init_pitches = ((18,19,28, 40),) 
-
-
-class Stutter(calliope.Transform):
-    def transform(self, selectable, **kwargs):
-        last_selectable = selectable[-1]
-        my_index = last_selectable.my_index
-        my_parent = last_selectable.parent
-
-        for i, event in enumerate(selectable.events):
-            my_parent.insert(my_index+i+1, event())
 
 
 # TO DO MAYBE: consider reviving:

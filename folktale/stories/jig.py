@@ -2,14 +2,6 @@ import abjad, calliope
 
 from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
 
-class Stutter(calliope.Transform):
-    def transform(self, selectable, **kwargs):
-        last_selectable = selectable[-1]
-        my_index = last_selectable.my_index
-        my_parent = last_selectable.parent
-
-        for i, event in enumerate(selectable.events):
-            my_parent.insert(my_index+i+1, event())
 
 class JigPitches(calliope.Transform):
     def transform(self, selectable, **kwargs):
@@ -100,7 +92,7 @@ class JigHarmony(calliope.Transform):
         e.rest = True
 
     def transform(self, selectable, **kwargs):
-        calliope.Label()(selectable.note_events)
+        # calliope.Label()(selectable.note_events)
 
         for i,e in enumerate(selectable.note_events):
             getattr(self, self.get_harmonizations().get(i, "rest"))(e)
@@ -114,8 +106,14 @@ class JigHarmony0(JigHarmony):
             4:"down_minor",
             7:"down_minor",
             8:"up_minor",
-            10:"up_major"
+            10:"down_major"
         }
+
+class JigHarmony1(JigHarmony0):
+    def get_harmonizations(self):
+        my_dict = super().get_harmonizations()
+        my_dict.update({0:"down_major"})
+        return my_dict
 
 class JigHarmony2(JigHarmony):
     def get_harmonizations(self):
@@ -128,9 +126,9 @@ class JigHarmony2(JigHarmony):
             5:"down_major",
             6:"mid_major",
             7:"down_major",
-            8:"up_minor",
+            8:"down_major",
             9:"up_minor",
-            10:"up_major"
+            10:"mid_major"
         }
 
 # l = SingLine().transformed(JigPitches(), JigRhythm())
@@ -189,10 +187,16 @@ class JigHarmonizedBlock(JigBlock):
         JigHarmony0()(harmony0[0])
         JigHarmony0()(harmony0[1])    
         JigHarmony2()(harmony0[2])  
-        JigHarmony0()(harmony0[3])        
+        JigHarmony1()(harmony0[3]) 
+        JigHarmony1()(harmony0[5])
+        JigHarmony2()(harmony0[6])
+        JigHarmony0()(harmony0[7])      
 
         harmony1 = my_block_list[1]()
-        JigHarmony0()(harmony1[1])
+        JigHarmony1()(harmony1[1])
+        JigHarmony2()(harmony1[2])
+        JigHarmony0()(harmony1[3])
+        JigHarmony2()(harmony1[4])
 
         my_block_list.extend([harmony0, harmony1])
         return my_block_list

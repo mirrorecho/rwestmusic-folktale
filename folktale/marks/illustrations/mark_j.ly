@@ -337,7 +337,7 @@
             r16
             ^ \markup { 9 }
             ]
-            <c'' e'' g''>8
+            <f' a' c''>8
             ^ \markup { 10 }
             [
             r8
@@ -373,7 +373,7 @@
             r16
             ^ \markup { 9 }
             ]
-            <c'' e'' g''>8
+            <f' a' c''>8
             ^ \markup { 10 }
             [
             r8
@@ -402,19 +402,19 @@
             <c' e' g'>8
             ^ \markup { 6 }
             [
-            <c' ef' g'>8
+            <c' e' g'>8
             ^ \markup { 7 }
             ]
-            <f' af' c''>8
+            <bf d' f'>8
             ^ \markup { 8 }
             [
             <a' c'' e''>8
             ^ \markup { 9 }
             ]
-            <e' af' b'>4
+            <c' e' g'>4
             ^ \markup { 10 }
             )
-            <g' bf' d''>8.
+            <c' e' g'>8.
             ^ \markup { 0 }
             [
             (
@@ -443,7 +443,7 @@
             r16
             ^ \markup { 9 }
             ]
-            <f' a' c''>8
+            <bf d' f'>8
             ^ \markup { 10 }
             [
             r8
@@ -452,87 +452,115 @@
             r1
             r2
             )
-            c''8.
+            <f' a' c''>8.
+            ^ \markup { 0 }
             [
             (
-            g'16
+            r16
+            ^ \markup { 1 }
             ]
-            bf'8
+            r8
             [
-            c''8
+            <c'' ef'' g''>8
+            ^ \markup { 3 }
             ]
-            d''8.
+            <g' bf' d''>8.
+            ^ \markup { 4 }
             [
-            g'16
+            r16
+            ^ \markup { 5 }
             ]
-            bf'8
+            r8
             [
-            d''8
+            <g' bf' d''>8
+            ^ \markup { 7 }
             ]
-            c''8.
+            <c'' ef'' g''>8.
+            ^ \markup { 8 }
             [
-            g'16
+            r16
+            ^ \markup { 9 }
             ]
-            bf'8
+            <ef' g' bf'>8
+            ^ \markup { 10 }
             [
-            a'8
+            r8
+            ^ \markup { 11 }
             ]
             )
-            f'8
+            <bf d' f'>8
+            ^ \markup { 0 }
             [
             (
-            g'8
+            <ef' g' bf'>8
+            ^ \markup { 1 }
             ]
-            bf'8
+            <ef' g' bf'>8
+            ^ \markup { 2 }
             [
-            a'8
+            r8
+            ^ \markup { 3 }
             ]
-            g'8
+            <ef' g' bf'>8
+            ^ \markup { 4 }
             [
-            f'8
+            <bf d' f'>8
+            ^ \markup { 5 }
             ]
-            d'8
+            <bf d' f'>8
+            ^ \markup { 6 }
             [
-            f'8
+            <bf d' f'>8
+            ^ \markup { 7 }
             ]
-            ef'8
+            <af c' ef'>8
+            ^ \markup { 8 }
             [
-            g'8
+            <g' bf' d''>8
+            ^ \markup { 9 }
             ]
-            d'4
+            <bf d' f'>4
+            ^ \markup { 10 }
             )
-            f'8.
+            <f' af' c''>8.
+            ^ \markup { 0 }
             [
-            (
-            ef'16
+            r16
+            ^ \markup { 1 }
             ]
-            f'8
+            r8
             [
-            c'8
+            <c' ef' g'>8
+            ^ \markup { 3 }
             ]
-            g'8.
+            <c' ef' g'>8.
+            ^ \markup { 4 }
             [
-            f'16
+            r16
+            ^ \markup { 5 }
             ]
-            c'8
+            r8
             [
-            g'8
+            <c' ef' g'>8
+            ^ \markup { 7 }
             ]
-            f'8.
+            <f' af' c''>8.
+            ^ \markup { 8 }
             [
-            c'16
+            r16
+            ^ \markup { 9 }
             ]
-            ef'8
+            <af c' ef'>8
+            ^ \markup { 10 }
             [
-            d'8
+            r8
             ]
-            )
         }
         {
             r1
             r1
             r1
-            <d'' f'' a''>8.
+            <g' b' d''>8.
             ^ \markup { 0 }
             [
             (
@@ -561,84 +589,116 @@
             r16
             ^ \markup { 9 }
             ]
-            <c'' e'' g''>8
+            <f' a' c''>8
             ^ \markup { 10 }
             [
             r8
             ^ \markup { 11 }
             ]
             )
-            c''8
+            <f' a' c''>8
+            ^ \markup { 0 }
             [
             (
-            d''8
+            <bf' d'' f''>8
+            ^ \markup { 1 }
             ]
-            f''8
+            <bf' d'' f''>8
+            ^ \markup { 2 }
             [
-            e''8
+            r8
+            ^ \markup { 3 }
             ]
-            d''8
+            <bf' d'' f''>8
+            ^ \markup { 4 }
             [
-            c''8
+            <f' a' c''>8
+            ^ \markup { 5 }
             ]
-            a'8
+            <f' a' c''>8
+            ^ \markup { 6 }
             [
-            c''8
+            <f' a' c''>8
+            ^ \markup { 7 }
             ]
-            bf'8
+            <ef' g' bf'>8
+            ^ \markup { 8 }
             [
-            d''8
+            <d'' f'' a''>8
+            ^ \markup { 9 }
             ]
-            a'4
+            <f' a' c''>4
+            ^ \markup { 10 }
             )
-            c''8.
+            <c'' ef'' g''>8.
+            ^ \markup { 0 }
             [
             (
-            bf'16
+            r16
+            ^ \markup { 1 }
             ]
-            c''8
+            r8
             [
-            g'8
+            <g' bf' d''>8
+            ^ \markup { 3 }
             ]
-            d''8.
+            <g' bf' d''>8.
+            ^ \markup { 4 }
             [
-            c''16
+            r16
+            ^ \markup { 5 }
             ]
-            g'8
+            r8
             [
-            d''8
+            <g' bf' d''>8
+            ^ \markup { 7 }
             ]
-            c''8.
+            <c'' ef'' g''>8.
+            ^ \markup { 8 }
             [
-            g'16
+            r16
+            ^ \markup { 9 }
             ]
-            bf'8
+            <ef' g' bf'>8
+            ^ \markup { 10 }
             [
-            a'8
+            r8
+            ^ \markup { 11 }
             ]
             )
-            f'8
+            <bf d' f'>8
+            ^ \markup { 0 }
             [
             (
-            g'8
+            <ef' g' bf'>8
+            ^ \markup { 1 }
             ]
-            bf'8
+            <ef' g' bf'>8
+            ^ \markup { 2 }
             [
-            a'8
+            r8
+            ^ \markup { 3 }
             ]
-            g'8
+            <ef' g' bf'>8
+            ^ \markup { 4 }
             [
-            f'8
+            <bf d' f'>8
+            ^ \markup { 5 }
             ]
-            d'8
+            <bf d' f'>8
+            ^ \markup { 6 }
             [
-            f'8
+            <bf d' f'>8
+            ^ \markup { 7 }
             ]
-            ef'8
+            <af c' ef'>8
+            ^ \markup { 8 }
             [
-            g'8
+            <g' bf' d''>8
+            ^ \markup { 9 }
             ]
-            d'4
+            <bf d' f'>4
+            ^ \markup { 10 }
             )
         }
     >>

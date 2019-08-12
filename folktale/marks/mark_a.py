@@ -4,8 +4,9 @@ from folktale.scores.score import FolktaleScore
 
 from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
 
+from folktale.stories import folk
 from folktale.stories.move_stack import SingSeq
-from folktale.stories.clang import ClangBlock, Stutter
+from folktale.stories.clang import ClangBlock
 from folktale.stories.arranger import Arranger
 
 # class GroupUp(calliope.Transform):
@@ -40,11 +41,11 @@ def get_line():
 
     s.events[0].pitch += 5 # SPECIAL case for first event  
 
-    Stutter()(s["phrase0"].events[1,2,3])
-    Stutter()(s["phrase0"].events[11,12,13,14])
+    folk.Stutter()(s["phrase0"].events[1,2,3])
+    folk.Stutter()(s["phrase0"].events[11,12,13,14])
 
-    Stutter()(s["phrase1"].events[0,1])
-    Stutter()(s["phrase1"].events[11,12,13])
+    folk.Stutter()(s["phrase1"].events[0,1])
+    folk.Stutter()(s["phrase1"].events[11,12,13])
 
     # Stutter()(s["phrase2"].events[0,1])
 

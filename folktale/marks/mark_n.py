@@ -3,44 +3,55 @@ import abjad, calliope
 from folktale.scores.score import FolktaleScore
 # from folktale.stories.clang import ClangStory
 
+from folktale.lines import sing_line
+from folktale.libraries import tally_apps
 
 from folktale.stories import folk
-from folktale.stories.arranger import Arranger
-from folktale.libraries import tally_apps
+from folktale.stories import harmony
 from folktale.stories import move_stack
 from folktale.stories import sing_stack
 from folktale.stories import jig
-from folktale.lines import sing_line
+
+from folktale.stories import arranger
 
 
-class SingM(sing_line.SingBlock):
+class SingN(sing_line.SingBlock):
     pass
 
-SING_M = SingM()
+SING_N = SingN().transformed(calliope.Transpose(interval=2))
 
-SING_LINE_INTRO = sing_line.SingLine()[:3]
+SING_LINE_INTRO = sing_line.SingLine()
 
-SING_M[0].insert(0,SING_LINE_INTRO[0]())
-SING_M[0].insert(1,SING_LINE_INTRO[1]())
-SING_M[0].insert(2,SING_LINE_INTRO[2]())
+move_stack.SingSeq(interval=7, pitch=0, smart_range=(0,12)).transform(
+    SING_LINE_INTRO[1]
+    )
 
-folk.Stutter()(SING_M[0].cells[4])
+calliope.Transpose(interval=2)(SING_LINE_INTRO[2])
 
-folk.Stutter(times=2)(SING_M[0].cells[6,7].note_events[:3])
 
-folk.Stutter(times=2)(SING_M[0].cells[8])
+SING_N[0].insert(0,SING_LINE_INTRO[0]())
+SING_N[0].insert(1,SING_LINE_INTRO[1]())
+SING_N[0].insert(2,SING_LINE_INTRO[2]())
 
-SING_M[1].insert(0,calliope.Phrase(
-    rhythm=(sum([p.beats for p in SING_M[0][:3]]),), 
+
+SING_N[1].insert(0,calliope.Phrase(
+    rhythm=(sum([p.beats for p in SING_N[0][:3]]),), 
     pitches=(None,)
     ))
 
 
+SING_N.append(
+    harmony.SweetDuoCellsPhrasesLine(SING_N[0])
+    )
+
+for p in SING_N.phrases:
+    p.respell = "sharps"
+
 def show_final_block():
-    calliope.PhrasePhrases()(SING_M)
-    calliope.Label()(SING_M[0].cells)
-    calliope.Label()(SING_M[1].phrases)
-    SING_M.illustrate_me(
+    calliope.PhrasePhrases()(SING_N)
+    calliope.Label()(SING_N[0].phrases)
+    calliope.Label()(SING_N[1].phrases)
+    SING_N.illustrate_me(
         as_midi=True
         )
 

@@ -3,6 +3,7 @@ import abjad, calliope
 from folktale.scores.score import FolktaleScore
 # from folktale.stories.clang import ClangStory
 
+from folktale.lines import sing_line
 
 from folktale.stories import folk
 from folktale.stories.arranger import Arranger
@@ -10,37 +11,40 @@ from folktale.libraries import tally_apps
 from folktale.stories import move_stack
 from folktale.stories import sing_stack
 from folktale.stories import jig
-from folktale.lines import sing_line
+from folktale.stories import harmony
+from folktale.stories import copland
 
 
-class SingM(sing_line.SingBlock):
+class SingR(sing_line.SingBlock):
     pass
 
-SING_M = SingM()
+SING_R = SingR()
+# harmony.AsMinor()(SING_R[1])
 
-SING_LINE_INTRO = sing_line.SingLine()[:3]
+# calliope.Transpose(interval=5)(SING_R[0].cells[6,7])
+# calliope.Transpose(interval=5)(SING_R[0].phrases[2,3])
 
-SING_M[0].insert(0,SING_LINE_INTRO[0]())
-SING_M[0].insert(1,SING_LINE_INTRO[1]())
-SING_M[0].insert(2,SING_LINE_INTRO[2]())
 
-folk.Stutter()(SING_M[0].cells[4])
-
-folk.Stutter(times=2)(SING_M[0].cells[6,7].note_events[:3])
-
-folk.Stutter(times=2)(SING_M[0].cells[8])
-
-SING_M[1].insert(0,calliope.Phrase(
-    rhythm=(sum([p.beats for p in SING_M[0][:3]]),), 
-    pitches=(None,)
+SING_R.extend(copland.CoplandBlock().transformed(
+    calliope.Transpose(interval=7)
     ))
 
 
+class SingRStaffGroup(calliope.StaffGroup): pass
+
 def show_final_block():
-    calliope.PhrasePhrases()(SING_M)
-    calliope.Label()(SING_M[0].cells)
-    calliope.Label()(SING_M[1].phrases)
-    SING_M.illustrate_me(
+    calliope.PhrasePhrases()(SING_R)
+
+    calliope.Label()(SING_R[0].cells)
+    calliope.Label()(SING_R[1].phrases)
+
+    sg = SingRStaffGroup(
+        *[calliope.Staff(s()) for s in SING_R],
+        )
+
+    sg.staves[1:].setattrs(clef="bass")
+
+    sg.illustrate_me(
         as_midi=True
         )
 

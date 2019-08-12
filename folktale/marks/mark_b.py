@@ -4,8 +4,9 @@ from folktale.scores.score import FolktaleScore
 
 from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
 
+from folktale.stories import folk
 from folktale.stories.move_stack import SingSeq
-from folktale.stories.clang import ClangBlock, Stutter, ClangPhrase, ClangChordsLine
+from folktale.stories.clang import ClangBlock, ClangPhrase, ClangChordsLine
 from folktale.stories.arranger import Arranger
 
 # class GroupUp(calliope.Transform):

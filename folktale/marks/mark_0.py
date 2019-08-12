@@ -4,9 +4,11 @@ from folktale.scores.score import FolktaleScore
 
 from folktale.lines.sing_line import SingLine, SingPhraseA0, SingPhraseA1, SingPhraseB
 
+from falktale.stories import folk
 from folktale.stories.move_stack import SingSeq
 from folktale.stories.clang import ClangBlock, Stutter
 from folktale.stories.arranger import Arranger
+
 
 class GroupUp(calliope.Transform):
     def transform(self, selectable, **kwargs):
