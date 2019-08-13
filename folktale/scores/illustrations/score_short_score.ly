@@ -21,126 +21,182 @@
             {
                 \set Staff.instrumentName = \markup { "S 0" }
                 \set Staff.shortInstrumentName = \markup { S.0 }
-                g'4
-                bf'8
-                [
-                c'8
-                ]
-                g'4
-                d'8
-                [
-                f'8
-                ]
-                c'4
-                g'8
-                [
-                bf'8
-                ]
                 c''4
-                af'4
-                bf'4
-                af'4
+                (
                 bf'8
                 [
-                df''8
-                ]
-                af'4
-                f'8
-                [
-                ef'8
-                ]
-                af'4
-                f'8
-                [
-                af'8
+                c''8
                 ]
                 bf'4
-                gf'4
-                bf'4
-                gf''4
-                af''4
-                gf''8
+                )
+                a''8
                 [
-                ef''8
+                (
+                g''8
                 ]
-                af''4
-                gf''8
+                d'''4
+                )
+                g''8
                 [
-                ef''8
+                (
+                bf''8
                 ]
-                gf''4
-                b''4
-                df''4
+                bf''4
+                )
+                af''4
+                (
+                g''4
+                )
                 ef''4
+                (
+                c''8
+                [
+                ef''8
+                ]
+                af''4
+                )
+                f''8
+                [
+                (
+                bf''8
+                ]
+                af''4
+                )
+                f''8
+                [
+                (
+                ef''8
+                ]
+                bf''4
+                )
                 gf''4
-                b''8
+                (
+                bf''4
+                )
+                gs''4
+                (
+                as''4
+                gs''8
                 [
+                as''8
+                ]
+                )
+                gs''4
+                (
+                gs''8
+                [
+                as''8
+                ]
+                )
+                gs''4
+                (
+                b'4
+                )
+                as'4
+                (
+                as''4
+                )
+                cs'''4
+                (
+                as''8
+                [
+                cs''8
+                ]
+                as'4
+                )
+                ds''8
+                [
+                (
+                as''8
+                ]
+                cs'''4
+                )
+                as''8
+                [
+                (
+                fs''8
+                ]
+                gs''4
+                )
+                e''4
+                (
+                as''4
+                )
+                bf'4
+                (
                 df''8
-                ]
-                af'4
-                ef'8
                 [
-                gf'8
+                bf'8
                 ]
-                df'4
-                af'8
+                bf''4
+                )
+                af''8
                 [
-                b'8
+                (
+                e''8
                 ]
-                df''4
-                a'4
-                df''4
-                a'4
-                b'8
+                bf''4
+                )
+                af''8
                 [
-                d''8
-                ]
-                a'4
-                gf'8
-                [
-                e'8
-                ]
-                a'4
-                gf'8
-                [
+                (
                 a'8
                 ]
                 b'4
-                g'4
-                b'4
-                g''4
+                )
                 a''4
+                (
+                df''4
+                )
+                a''4
+                (
+                bf''4
                 g''8
                 [
                 e''8
                 ]
-                a''4
-                g''8
+                )
+                a'4
+                (
+                d''8
                 [
                 e''8
                 ]
+                )
                 g''4
+                (
                 c'''4
-                d''4
-                e''4
-                g''4
-                c'''8
+                )
+                d'''4
+                (
+                e'''4
+                )
+                d'''4
+                (
+                g''8
                 [
                 d''8
                 ]
-                a'4
-                e'8
+                bf'4
+                )
+                e''8
                 [
-                g'8
+                (
+                g''8
                 ]
-                d'4
-                a8
+                d''4
+                )
+                a'8
                 [
-                c'8
+                (
+                c'''8
                 ]
-                d'4
-                bf4
-                d'4
+                d'''4
+                )
+                bf''4
+                (
+                d'''4
+                )
             }
         }
         \context Staff = "s1"
@@ -152,126 +208,182 @@
             {
                 \set Staff.instrumentName = \markup { "S 1" }
                 \set Staff.shortInstrumentName = \markup { S.1 }
-                bf'4
-                f'8
+                g''4
+                (
+                bf''8
                 [
-                d'8
+                g''8
                 ]
-                d'4
-                e'8
+                d'''4
+                )
+                e'''8
                 [
-                g'8
+                (
+                bf'8
                 ]
-                bf'4
-                d'8
-                [
-                f'8
-                ]
-                g'4
-                bf'4
                 c''4
-                ef'4
-                f'8
+                )
+                d''8
                 [
-                af'8
+                (
+                f''8
                 ]
-                ef'4
-                c'8
-                [
-                bf8
-                ]
-                ef'4
-                c'8
-                [
-                ef'8
-                ]
-                f'4
-                df'4
-                f'4
-                df''4
-                ef''4
-                df''8
-                [
-                bf'8
-                ]
-                ef''4
-                df''8
-                [
-                bf'8
-                ]
-                df''4
-                gf''4
-                af''4
+                c'''4
+                )
                 bf''4
-                df''4
+                (
+                bf'4
+                )
+                bf''4
+                (
+                f''8
+                [
+                af''8
+                ]
+                bf''4
+                )
+                g''8
+                [
+                (
+                f''8
+                ]
+                bf''4
+                )
+                bf''8
+                [
+                (
+                af''8
+                ]
+                bf''4
+                )
+                af''4
+                (
+                f''4
+                )
+                df'''4
+                (
+                ef'''4
+                df'''8
+                [
+                bf''8
+                ]
+                )
+                bf'4
+                (
+                bf'8
+                [
+                f''8
+                ]
+                )
+                gf''4
+                (
+                df'''4
+                )
+                ef'''4
+                (
+                f''4
+                )
+                gf''4
+                (
                 gf''8
                 [
                 af''8
                 ]
-                ef''4
+                bf''4
+                )
+                f''8
+                [
+                (
+                gf''8
+                ]
+                af''4
+                )
+                ds'''8
+                [
+                (
+                b''8
+                ]
+                ds'''4
+                )
+                a''4
+                (
+                gs''4
+                )
+                e'''4
+                (
+                gf''8
+                [
+                e''8
+                ]
+                e''4
+                )
+                gf''8
+                [
+                (
+                gf''8
+                ]
+                e''4
+                )
+                gf''8
+                [
+                (
+                e''8
+                ]
+                gf''4
+                )
+                g''4
+                (
+                bf''4
+                )
+                d''4
+                (
+                a''4
                 bf'8
                 [
-                df''8
-                ]
-                af'4
-                ef'8
-                [
-                gf'8
-                ]
-                af'4
-                e'4
-                af'4
-                e'4
-                gf'8
-                [
-                a'8
-                ]
-                e'4
-                df'8
-                [
-                b8
-                ]
-                e'4
-                df'8
-                [
-                e'8
-                ]
-                gf'4
-                d'4
-                gf'4
-                d''4
-                e''4
-                d''8
-                [
                 b'8
                 ]
+                )
                 e''4
-                d''8
-                [
-                b'8
-                ]
-                d''4
-                g''4
-                a''4
-                b''4
-                d''4
+                (
                 g''8
                 [
-                a''8
+                gf''8
+                ]
+                )
+                d''4
+                (
+                g''4
+                )
+                e'''4
+                (
+                b''4
+                )
+                bf'4
+                (
+                d''8
+                [
+                e''8
                 ]
                 e''4
-                b'8
+                )
+                b''8
                 [
-                d''8
+                (
+                a''8
+                ]
+                bf''4
+                )
+                b''8
+                [
+                (
+                bf'8
                 ]
                 a'4
-                e'8
-                [
-                g'8
-                ]
+                )
+                bf'4
+                (
                 a'4
-                f'4
-                a'4
+                )
             }
         }
         \context Staff = "s2"
@@ -284,125 +396,181 @@
                 \set Staff.instrumentName = \markup { "S 2" }
                 \set Staff.shortInstrumentName = \markup { S.2 }
                 f'4
-                c''8
+                (
+                f''8
                 [
-                bf'8
+                d''8
+                ]
+                g''4
+                )
+                d''8
+                [
+                (
+                c''8
                 ]
                 bf'4
+                )
                 a'8
                 [
-                c'8
+                (
+                bf'8
                 ]
-                d'4
+                d''4
+                )
+                bf'4
+                (
+                d''4
+                )
+                bf'4
+                (
                 bf'8
                 [
-                c''8
+                bf'8
                 ]
-                bf'4
-                bf'4
-                g'4
-                bf4
-                c'8
+                ef''4
+                )
+                bf'8
                 [
+                (
                 ef'8
                 ]
-                bf4
-                g'8
-                [
-                f'8
-                ]
                 bf'4
-                g'8
+                )
+                c''8
                 [
+                (
                 bf'8
                 ]
                 c''4
-                af'4
+                )
+                bf'4
+                (
                 c''4
-                af'4
+                )
+                gf'4
+                (
                 bf'4
-                af'8
-                [
-                f'8
-                ]
-                bf'4
-                af'8
-                [
-                f'8
-                ]
-                af'4
-                df''4
-                ef''4
-                f''4
-                af''4
-                df''8
+                gf'8
                 [
                 ef''8
                 ]
+                )
                 bf'4
-                f'8
+                (
+                df''8
                 [
-                af'8
+                bf'8
                 ]
-                ef'4
-                bf8
+                )
+                bf'4
+                (
+                gf'4
+                )
+                df''4
+                (
+                ef''4
+                )
+                as'4
+                (
+                b'8
                 [
-                df'8
+                as'8
                 ]
-                ef'4
-                b4
-                ef'4
-                b4
-                df'8
+                ds'4
+                )
+                as'8
                 [
-                e'8
+                (
+                cs''8
                 ]
-                b4
-                af'8
+                ds''4
+                )
+                gs'8
                 [
-                gf'8
+                (
+                as'8
                 ]
-                b'4
-                af'8
+                cs''4
+                )
+                as'4
+                (
+                ds'4
+                )
+                a'4
+                (
+                b'8
                 [
+                a'8
+                ]
+                a'4
+                )
+                bf'8
+                [
+                (
                 b'8
                 ]
-                df''4
                 a'4
-                df''4
-                a'4
-                b'4
-                a'8
+                )
+                bf'8
                 [
-                gf'8
+                (
+                b'8
                 ]
-                b'4
-                a'8
-                [
-                gf'8
-                ]
-                a'4
+                bf'4
+                )
                 d''4
+                (
+                b'4
+                )
+                g''4
+                (
                 e''4
-                gf''4
-                a''4
                 d''8
                 [
-                e''8
+                bf'8
                 ]
-                b'4
-                gf'8
+                )
+                bf'4
+                (
+                a'8
+                [
+                bf'8
+                ]
+                )
+                a'4
+                (
+                bf'4
+                )
+                a'4
+                (
+                bf'4
+                )
+                g''4
+                (
+                bf'8
                 [
                 a'8
                 ]
-                e'4
-                b8
+                b'4
+                )
+                gf''8
                 [
+                (
+                d''8
+                ]
+                e''4
+                )
+                e'8
+                [
+                (
                 d'8
                 ]
-                e'4
-                c'4
-                e'4
+                e''4
+                )
+                c''4
+                (
+                e''4
+                )
             }
         }
         \context Staff = "s3"
@@ -414,126 +582,182 @@
             {
                 \set Staff.instrumentName = \markup { "S 3" }
                 \set Staff.shortInstrumentName = \markup { S.3 }
-                c'4
-                bf'8
+                bf4
+                (
+                c'8
                 [
-                g'8
+                bf8
                 ]
-                a'4
-                bf'8
+                a4
+                )
+                bf8
                 [
-                bf'8
+                (
+                f8
+                ]
+                g4
+                )
+                bf8
+                [
+                (
+                c'8
                 ]
                 g'4
-                a'8
-                [
-                bf'8
-                ]
-                d'4
+                )
                 ef'4
+                (
+                c'4
+                )
+                af4
+                (
+                bf8
+                [
+                df'8
+                ]
+                bf4
+                )
+                c'8
+                [
+                (
+                bf8
+                ]
+                ef4
+                )
+                g8
+                [
+                (
+                bf8
+                ]
+                f'4
+                )
+                df'4
+                (
+                bf4
+                )
+                bf4
+                (
+                af4
+                bf8
+                [
+                f8
+                ]
+                )
+                ef4
+                (
+                gf8
+                [
+                ef8
+                ]
+                )
+                df'4
+                (
+                bf4
+                )
+                af4
+                (
+                bf4
+                )
+                gs4
+                (
+                cs'8
+                [
+                ds8
+                ]
+                gs4
+                )
+                as8
+                [
+                (
+                gs8
+                ]
+                as4
+                )
+                as8
+                [
+                (
+                cs'8
+                ]
+                as4
+                )
+                b4
+                (
+                cs'4
+                )
+                b4
+                (
+                bf8
+                [
+                d'8
+                ]
+                b4
+                )
+                df'8
+                [
+                (
+                bf8
+                ]
+                b4
+                )
+                df'8
+                [
+                (
+                bf8
+                ]
+                df'4
+                )
+                bf4
+                (
+                gf'4
+                )
+                bf4
+                (
+                b4
+                a8
+                [
+                gf8
+                ]
+                )
+                b4
+                (
+                bf8
+                [
+                b8
+                ]
+                )
+                bf4
+                (
                 d'4
+                )
                 bf4
-                bf8
+                (
+                gf4
+                )
+                a4
+                (
+                c'8
                 [
                 bf8
                 ]
-                bf4
+                a4
+                )
                 bf8
                 [
+                (
                 bf8
                 ]
-                bf4
+                a4
+                )
                 bf8
                 [
-                bf8
+                (
+                g8
                 ]
                 bf4
+                )
+                f4
+                (
                 bf4
-                bf4
-                bf4
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf4
-                bf4
-                bf4
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf4
-                bf4
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf4
-                bf4
-                bf4
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf4
-                bf4
-                bf4
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf8
-                [
-                bf8
-                ]
-                bf4
-                bf4
-                bf4
+                )
             }
         }
         \context Staff = "s4"

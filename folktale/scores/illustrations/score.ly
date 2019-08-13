@@ -22,6 +22,60 @@
                 \consists Horizontal_bracket_engraver
             }
             {
+                {
+                    \set Staff.instrumentName = \markup { Flute }
+                    \set Staff.shortInstrumentName = \markup { Fl. }
+                    r2
+                    r4
+                    e'''8
+                    [
+                    bf'8
+                    ]
+                    c''4
+                    r4
+                    r2
+                    r4
+                    bf''4
+                    f''8
+                    [
+                    af''8
+                    ]
+                    bf''4
+                    r1
+                    af''4
+                    f''4
+                    r2
+                    r4
+                    bf'4
+                    bf'8
+                    [
+                    f''8
+                    ]
+                    r4
+                    r4
+                    ef'''4
+                    f''4
+                    fs''4
+                    fs''8
+                    [
+                    af''8
+                    ]
+                    bf''4
+                    f''8
+                    [
+                    fs''8
+                    ]
+                    af''4
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r2
+                    r4
+                }
             }
             \context Staff = "oboe"
             \with
@@ -29,6 +83,60 @@
                 \consists Horizontal_bracket_engraver
             }
             {
+                {
+                    \set Staff.instrumentName = \markup { Oboe }
+                    \set Staff.shortInstrumentName = \markup { Ob. }
+                    r2
+                    r4
+                    a''8
+                    [
+                    g''8
+                    ]
+                    d'''4
+                    r4
+                    r2
+                    r4
+                    ef''4
+                    c''8
+                    [
+                    ef''8
+                    ]
+                    af''4
+                    r1
+                    fs''4
+                    bf''4
+                    r2
+                    r4
+                    af''4
+                    af''8
+                    [
+                    bf''8
+                    ]
+                    r4
+                    r4
+                    bf'4
+                    bf''4
+                    cs'''4
+                    bf''8
+                    [
+                    cs''8
+                    ]
+                    bf'4
+                    ef''8
+                    [
+                    bf''8
+                    ]
+                    cs'''4
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r2
+                    r4
+                }
             }
         >>
         \context PianoStaff = "piano"
@@ -39,6 +147,186 @@
                 \consists Horizontal_bracket_engraver
             }
             {
+                {
+                    \set Staff.instrumentName = \markup { Piano }
+                    \set Staff.shortInstrumentName = \markup { Pf. }
+                    c''4
+                    (
+                    bf'8
+                    [
+                    c''8
+                    ]
+                    bf'4
+                    )
+                    a''8
+                    [
+                    (
+                    g''8
+                    ]
+                    d'''4
+                    )
+                    g''8
+                    [
+                    (
+                    bf''8
+                    ]
+                    bf''4
+                    )
+                    af''4
+                    (
+                    g''4
+                    )
+                    ef''4
+                    (
+                    c''8
+                    [
+                    ef''8
+                    ]
+                    af''4
+                    )
+                    f''8
+                    [
+                    (
+                    bf''8
+                    ]
+                    af''4
+                    )
+                    f''8
+                    [
+                    (
+                    ef''8
+                    ]
+                    bf''4
+                    )
+                    gf''4
+                    (
+                    bf''4
+                    )
+                    gs''4
+                    (
+                    as''4
+                    gs''8
+                    [
+                    as''8
+                    ]
+                    )
+                    gs''4
+                    (
+                    gs''8
+                    [
+                    as''8
+                    ]
+                    )
+                    gs''4
+                    (
+                    b'4
+                    )
+                    as'4
+                    (
+                    as''4
+                    )
+                    cs'''4
+                    (
+                    as''8
+                    [
+                    cs''8
+                    ]
+                    as'4
+                    )
+                    ds''8
+                    [
+                    (
+                    as''8
+                    ]
+                    cs'''4
+                    )
+                    as''8
+                    [
+                    (
+                    fs''8
+                    ]
+                    gs''4
+                    )
+                    e''4
+                    (
+                    as''4
+                    )
+                    bf'4
+                    (
+                    df''8
+                    [
+                    bf'8
+                    ]
+                    bf''4
+                    )
+                    af''8
+                    [
+                    (
+                    e''8
+                    ]
+                    bf''4
+                    )
+                    af''8
+                    [
+                    (
+                    a'8
+                    ]
+                    b'4
+                    )
+                    a''4
+                    (
+                    df''4
+                    )
+                    a''4
+                    (
+                    bf''4
+                    g''8
+                    [
+                    e''8
+                    ]
+                    )
+                    a'4
+                    (
+                    d''8
+                    [
+                    e''8
+                    ]
+                    )
+                    g''4
+                    (
+                    c'''4
+                    )
+                    d'''4
+                    (
+                    e'''4
+                    )
+                    d'''4
+                    (
+                    g''8
+                    [
+                    d''8
+                    ]
+                    bf'4
+                    )
+                    e''8
+                    [
+                    (
+                    g''8
+                    ]
+                    d''4
+                    )
+                    a'8
+                    [
+                    (
+                    c'''8
+                    ]
+                    d'''4
+                    )
+                    bf''4
+                    (
+                    d'''4
+                    )
+                }
             }
             \context Staff = "piano2"
             \with
@@ -46,6 +334,187 @@
                 \consists Horizontal_bracket_engraver
             }
             {
+                {
+                    \set Staff.instrumentName = \markup { Piano }
+                    \set Staff.shortInstrumentName = \markup { Pf. }
+                    \clef "bass"
+                    bf4
+                    (
+                    c'8
+                    [
+                    bf8
+                    ]
+                    a4
+                    )
+                    bf8
+                    [
+                    (
+                    f8
+                    ]
+                    g4
+                    )
+                    bf8
+                    [
+                    (
+                    c'8
+                    ]
+                    g'4
+                    )
+                    ef'4
+                    (
+                    c'4
+                    )
+                    af4
+                    (
+                    bf8
+                    [
+                    df'8
+                    ]
+                    bf4
+                    )
+                    c'8
+                    [
+                    (
+                    bf8
+                    ]
+                    ef4
+                    )
+                    g8
+                    [
+                    (
+                    bf8
+                    ]
+                    f'4
+                    )
+                    df'4
+                    (
+                    bf4
+                    )
+                    bf4
+                    (
+                    af4
+                    bf8
+                    [
+                    f8
+                    ]
+                    )
+                    ef4
+                    (
+                    gf8
+                    [
+                    ef8
+                    ]
+                    )
+                    df'4
+                    (
+                    bf4
+                    )
+                    af4
+                    (
+                    bf4
+                    )
+                    gs4
+                    (
+                    cs'8
+                    [
+                    ds8
+                    ]
+                    gs4
+                    )
+                    as8
+                    [
+                    (
+                    gs8
+                    ]
+                    as4
+                    )
+                    as8
+                    [
+                    (
+                    cs'8
+                    ]
+                    as4
+                    )
+                    b4
+                    (
+                    cs'4
+                    )
+                    b4
+                    (
+                    bf8
+                    [
+                    d'8
+                    ]
+                    b4
+                    )
+                    df'8
+                    [
+                    (
+                    bf8
+                    ]
+                    b4
+                    )
+                    df'8
+                    [
+                    (
+                    bf8
+                    ]
+                    df'4
+                    )
+                    bf4
+                    (
+                    gf'4
+                    )
+                    bf4
+                    (
+                    b4
+                    a8
+                    [
+                    gf8
+                    ]
+                    )
+                    b4
+                    (
+                    bf8
+                    [
+                    b8
+                    ]
+                    )
+                    bf4
+                    (
+                    d'4
+                    )
+                    bf4
+                    (
+                    gf4
+                    )
+                    a4
+                    (
+                    c'8
+                    [
+                    bf8
+                    ]
+                    a4
+                    )
+                    bf8
+                    [
+                    (
+                    bf8
+                    ]
+                    a4
+                    )
+                    bf8
+                    [
+                    (
+                    g8
+                    ]
+                    bf4
+                    )
+                    f4
+                    (
+                    bf4
+                    )
+                }
             }
         >>
         \context StaffGroup = "strings"
@@ -56,6 +525,60 @@
                 \consists Horizontal_bracket_engraver
             }
             {
+                {
+                    \set Staff.instrumentName = \markup { "Violin 1" }
+                    \set Staff.shortInstrumentName = \markup { Vln.1 }
+                    r2
+                    r4
+                    e'''8
+                    [
+                    bf'8
+                    ]
+                    c''4
+                    r4
+                    r2
+                    r4
+                    bf''4
+                    f''8
+                    [
+                    af''8
+                    ]
+                    bf''4
+                    r1
+                    af''4
+                    f''4
+                    r2
+                    r4
+                    bf'4
+                    bf'8
+                    [
+                    f''8
+                    ]
+                    r4
+                    r4
+                    ef'''4
+                    f''4
+                    fs''4
+                    fs''8
+                    [
+                    af''8
+                    ]
+                    bf''4
+                    f''8
+                    [
+                    fs''8
+                    ]
+                    af''4
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r2
+                    r4
+                }
             }
             \context Staff = "violin2"
             \with
@@ -70,6 +593,60 @@
                 \consists Horizontal_bracket_engraver
             }
             {
+                {
+                    \set Staff.instrumentName = \markup { Viola }
+                    \set Staff.shortInstrumentName = \markup { Vla. }
+                    r2
+                    r4
+                    a''8
+                    [
+                    g''8
+                    ]
+                    d'''4
+                    r4
+                    r2
+                    r4
+                    ef''4
+                    c''8
+                    [
+                    ef''8
+                    ]
+                    af''4
+                    r1
+                    fs''4
+                    bf''4
+                    r2
+                    r4
+                    af''4
+                    af''8
+                    [
+                    bf''8
+                    ]
+                    r4
+                    r4
+                    bf'4
+                    bf''4
+                    cs'''4
+                    bf''8
+                    [
+                    cs''8
+                    ]
+                    bf'4
+                    ef''8
+                    [
+                    bf''8
+                    ]
+                    cs'''4
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r1
+                    r2
+                    r4
+                }
             }
             \context Staff = "cello"
             \with
@@ -94,210 +671,6 @@
                 \consists Horizontal_bracket_engraver
             }
             {
-                {
-                    \set Staff.instrumentName = \markup { "S 0" }
-                    \set Staff.shortInstrumentName = \markup { S.0 }
-                    <c'' b'' a'''>4
-                    (
-                    <c'' b'' a'''>8
-                    [
-                    r8
-                    ]
-                    r4
-                    )
-                    <b' fs'' c''' b'''>8
-                    [
-                    (
-                    r8
-                    ]
-                    r4
-                    )
-                    <b' fs'' c''' b'''>8
-                    [
-                    (
-                    r8
-                    ]
-                    r4
-                    )
-                    <c'' b'' a'''>4
-                    (
-                    <b' fs'' c''' b'''>4
-                    )
-                    <fs'' g'' e''' e''''>4
-                    (
-                    r8
-                    [
-                    <c'' b'' a'''>8
-                    ]
-                    <fs'' g'' e''' e''''>4
-                    )
-                    r4
-                    (
-                    <fs'' g'' e''' e''''>4
-                    )
-                    <b' fs'' c''' b'''>8
-                    [
-                    (
-                    r8
-                    ]
-                    r4
-                    )
-                    <c'' b'' a'''>4
-                    (
-                    <b' fs'' c''' b'''>4
-                    )
-                    <fs'' g'' e''' e''''>4
-                    (
-                    r4
-                    <fs'' g'' e''' e''''>8
-                    [
-                    r8
-                    ]
-                    r4
-                    )
-                    <fs'' g'' e''' e''''>8
-                    [
-                    r8
-                    ]
-                    <fs'' g'' e''' e''''>4
-                    (
-                    <c' b' a''>4
-                    )
-                    r4
-                    r4
-                    <fs'' g'' e''' e''''>4
-                    (
-                    <c'' b'' a'''>8
-                    [
-                    r8
-                    ]
-                    r4
-                    )
-                    <b' fs'' c''' b'''>8
-                    [
-                    (
-                    r8
-                    ]
-                    r4
-                    )
-                    <b' fs'' c''' b'''>8
-                    [
-                    (
-                    r8
-                    ]
-                    r4
-                    )
-                    <c'' b'' a'''>4
-                    (
-                    <b' fs'' c''' b'''>4
-                    )
-                    <fs'' g'' e''' e''''>4
-                    (
-                    <fs'' g'' e''' e''''>8
-                    [
-                    r8
-                    ]
-                    r2
-                    r2
-                    )
-                    <b' fs'' c''' b'''>4
-                    r4
-                    r2
-                    <b' fs'' c''' b'''>8
-                    [
-                    r8
-                    ]
-                    r4
-                    r8
-                    [
-                    <b' fs'' c''' b'''>8
-                    ]
-                    r4
-                    r8
-                    [
-                    <b'' fs''' c'''' b''''>8
-                    ]
-                    r4
-                    r2
-                    <b' fs'' c''' b'''>4
-                    (
-                    r4
-                    <b' fs'' c''' b'''>8
-                    [
-                    r8
-                    ]
-                    r4
-                    )
-                    <b' fs'' c''' b'''>8
-                    [
-                    r8
-                    ]
-                    <b' fs'' c''' b'''>4
-                    (
-                    <b' fs'' c''' b'''>4
-                    )
-                    r4
-                    r2
-                    r1
-                    r2
-                    r4
-                    <c'' b'' a'''>4
-                    r2
-                    r4
-                    <c' b' a''>8
-                    [
-                    (
-                    r8
-                    ]
-                    r4
-                    )
-                    <fs''' g''' e'''' e'''''>8
-                    [
-                    (
-                    r8
-                    ]
-                    <c''' b''' a''''>4
-                    )
-                    r4
-                    r2
-                    <c'' b'' a'''>4
-                    r8
-                    [
-                    <fs'' g'' e''' e''''>8
-                    ]
-                    <c'' b'' a'''>4
-                    (
-                    r8
-                    [
-                    <fs'' g'' e''' e''''>8
-                    ]
-                    )
-                    r2
-                    <c'' b'' a'''>4
-                    (
-                    r4
-                    r4
-                    r8
-                    )
-                    [
-                    <fs''' g''' e'''' e'''''>8
-                    ]
-                    r4
-                    r8
-                    [
-                    <fs''' g''' e'''' e'''''>8
-                    ]
-                    r4
-                    r8
-                    [
-                    <fs''' g''' e'''' e'''''>8
-                    ]
-                    r4
-                    <c''' b''' a''''>4
-                    (
-                    <b'' fs''' c'''' b''''>4
-                    )
-                }
             }
             \context Staff = "s1"
             \with
@@ -305,287 +678,6 @@
                 \consists Horizontal_bracket_engraver
             }
             {
-                {
-                    \set Staff.instrumentName = \markup { "S 1" }
-                    \set Staff.shortInstrumentName = \markup { S.1 }
-                    c''4
-                    (
-                    c''8
-                    [
-                    d''8
-                    ]
-                    a'4
-                    )
-                    b'8
-                    [
-                    (
-                    d''8
-                    ]
-                    a'4
-                    )
-                    b'8
-                    [
-                    (
-                    d'8
-                    ]
-                    e'4
-                    )
-                    c''4
-                    (
-                    b'4
-                    )
-                    g'4
-                    (
-                    a'8
-                    [
-                    c''8
-                    ]
-                    g'4
-                    )
-                    e''8
-                    [
-                    (
-                    d''8
-                    ]
-                    g'4
-                    )
-                    b'8
-                    [
-                    (
-                    d'8
-                    ]
-                    e'4
-                    )
-                    c''4
-                    (
-                    b'4
-                    )
-                    g'4
-                    (
-                    a'4
-                    g'8
-                    [
-                    e'8
-                    ]
-                    )
-                    a'4
-                    (
-                    g'8
-                    [
-                    e'8
-                    ]
-                    )
-                    g'4
-                    (
-                    c'4
-                    )
-                    d'4
-                    (
-                    e'4
-                    )
-                    g'4
-                    (
-                    c''8
-                    [
-                    d''8
-                    ]
-                    a'4
-                    )
-                    b'8
-                    [
-                    (
-                    d''8
-                    ]
-                    a'4
-                    )
-                    b'8
-                    [
-                    (
-                    d'8
-                    ]
-                    e'4
-                    )
-                    c''4
-                    (
-                    b'4
-                    )
-                    g'4
-                    (
-                    g'8
-                    [
-                    a'8
-                    ]
-                    e'4
-                    )
-                    fs'8
-                    [
-                    (
-                    a'8
-                    ]
-                    e'4
-                    )
-                    fs'8
-                    [
-                    (
-                    a'8
-                    ]
-                    b'4
-                    )
-                    d''4
-                    (
-                    cs''4
-                    )
-                    a'4
-                    (
-                    b'8
-                    [
-                    a'8
-                    ]
-                    e'4
-                    )
-                    cs'8
-                    [
-                    (
-                    b'8
-                    ]
-                    e''4
-                    )
-                    gs''8
-                    [
-                    (
-                    b''8
-                    ]
-                    cs''4
-                    )
-                    e''4
-                    (
-                    ds''4
-                    )
-                    b'4
-                    (
-                    cs''4
-                    b'8
-                    [
-                    gs'8
-                    ]
-                    )
-                    cs''4
-                    (
-                    b'8
-                    [
-                    gs'8
-                    ]
-                    )
-                    b'4
-                    (
-                    b'4
-                    )
-                    cs''4
-                    (
-                    ds''4
-                    )
-                    gf''4
-                    (
-                    gf''8
-                    [
-                    af''8
-                    ]
-                    ef''4
-                    )
-                    f''8
-                    [
-                    (
-                    af''8
-                    ]
-                    ef''4
-                    )
-                    f''8
-                    [
-                    (
-                    af''8
-                    ]
-                    bf''4
-                    )
-                    df''4
-                    (
-                    c''4
-                    )
-                    af'4
-                    (
-                    bf'8
-                    [
-                    af'8
-                    ]
-                    ef'4
-                    )
-                    c'8
-                    [
-                    (
-                    bf'8
-                    ]
-                    ef''4
-                    )
-                    g''8
-                    [
-                    (
-                    bf''8
-                    ]
-                    c'''4
-                    )
-                    ef''4
-                    (
-                    d''4
-                    )
-                    bf'4
-                    (
-                    c''4
-                    bf'8
-                    [
-                    g'8
-                    ]
-                    )
-                    c''4
-                    (
-                    bf'8
-                    [
-                    g'8
-                    ]
-                    )
-                    bf'4
-                    (
-                    bf'4
-                    )
-                    c''4
-                    (
-                    d''4
-                    )
-                    f''4
-                    (
-                    f''8
-                    [
-                    g''8
-                    ]
-                    d''4
-                    )
-                    e''8
-                    [
-                    (
-                    g''8
-                    ]
-                    d''4
-                    )
-                    e''8
-                    [
-                    (
-                    g''8
-                    ]
-                    a''4
-                    )
-                    c'''4
-                    (
-                    b''4
-                    )
-                }
             }
             \context Staff = "s2"
             \with
@@ -593,96 +685,6 @@
                 \consists Horizontal_bracket_engraver
             }
             {
-                {
-                    \set Staff.instrumentName = \markup { "S 2" }
-                    \set Staff.shortInstrumentName = \markup { S.2 }
-                    <a' b' c''>1
-                    ~
-                    <a' b' c''>4
-                    <e' b' c''>4
-                    ~
-                    <e' b' c''>2
-                    ~
-                    <e' b' c''>4
-                    <g' a' e''>4
-                    ~
-                    <g' a' e''>2
-                    ~
-                    <g' a' e''>2
-                    <e' b' c''>2
-                    ~
-                    <e' b' c''>2
-                    <e' a' a'>2
-                    ~
-                    <e' a' a'>2
-                    ~
-                    <e' a' a'>4
-                    <c' d' e'>4
-                    ~
-                    <c' d' e'>2
-                    ~
-                    <c' d' e'>4
-                    <a' b' c''>4
-                    ~
-                    <a' b' c''>1
-                    <e' b' c''>1
-                    <e' fs' g'>1
-                    ~
-                    <e' fs' g'>4
-                    <b' cs'' d''>4
-                    ~
-                    <b' cs'' d''>2
-                    ~
-                    <b' cs'' d''>4
-                    <cs' e' b'>4
-                    ~
-                    <cs' e' b'>2
-                    ~
-                    <cs' e' b'>2
-                    <cs'' ef'' e''>2
-                    ~
-                    <cs'' ef'' e''>2
-                    <af' cs'' cs''>2
-                    ~
-                    <af' cs'' cs''>2
-                    ~
-                    <af' cs'' cs''>4
-                    <b' cs'' ef''>4
-                    ~
-                    <b' cs'' ef''>2
-                    ~
-                    <b' cs'' ef''>4
-                    <ef'' f'' fs''>4
-                    ~
-                    <ef'' f'' fs''>1
-                    <c'' cs'' bf''>1
-                    <c' ef' bf'>1
-                    ~
-                    <c' ef' bf'>4
-                    <d'' ef'' c'''>4
-                    ~
-                    <d'' ef'' c'''>2
-                    ~
-                    <d'' ef'' c'''>4
-                    <g' c'' c''>4
-                    ~
-                    <g' c'' c''>2
-                    ~
-                    <g' c'' c''>2
-                    <bf' c'' d''>2
-                    ~
-                    <bf' c'' d''>2
-                    <d'' e'' f''>2
-                    ~
-                    <d'' e'' f''>2
-                    ~
-                    <d'' e'' f''>4
-                    <a'' b'' c'''>4
-                    ~
-                    <a'' b'' c'''>2
-                    ~
-                    <a'' b'' c'''>4
-                }
             }
             \context Staff = "s3"
             \with
@@ -700,4 +702,5 @@
             }
         >>
     >>
+    \midi {}
 }
