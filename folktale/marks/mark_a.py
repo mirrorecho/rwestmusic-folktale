@@ -142,13 +142,11 @@ a.score.staves["violin1"].note_events.tag(":16")
 a.score.staves["violin2"].note_events.tag(":16")
 a.score.staves["viola"].note_events.tag(":16")
 
-a.block_to_short_score()
-calliope.SlurCells()(a.score.staff_groups("short_score"))
-
-a.score.illustrate_me(
-    as_midi=True
-    )
+# a.block_to_short_score()
+# calliope.SlurCells()(a.score.staff_groups("short_score"))
 
 # a.score.illustrate_me(
-#     as_midi=True,
+#     as_midi=True
 #     )
+
+

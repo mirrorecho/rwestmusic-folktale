@@ -36,6 +36,7 @@ class Arranger(calliope.CalliopeBase):
                 ])
             )
 
+    # TO DO: is this used????
     def chords_to_staff(self, staff_name, cell_events_dict): pass
         # score.staves[staff_name].append(
         #     calliope.Line(*[
@@ -45,6 +46,27 @@ class Arranger(calliope.CalliopeBase):
 
     def block_to_short_score(self):
         for i,l in enumerate(self.line_block):
-            self.score.staff_groups["short_score"][i].append(l())
+            try:
+                self.score.staff_groups["short_score"][i].append(l())
+            except:
+                print("OH NO SHORT SCORE!", self.line_block)
+
+    def copy_score_staves(self, incoming_score):
+        for staff in incoming_score.staves:
+            print(staff.name)
+            if len(staff.lines) > 0:
+                self.score.staves[staff.name].append(staff.lines[0]() )
+
+    def illustrate_score(self,
+        with_short_score = False,
+        **kwargs,
+        ):
+
+        if not with_short_score:
+            self.score.pop(-1)
+        
+        self.score.illustrate_me(
+            **kwargs
+            )
 
     # def pulse_events_to_staff(self, line_index, staff_name)

@@ -140,12 +140,12 @@ a.score.staves["viola"].note_events.tag(":16")
 # END STANDARD 0,A,B ARRANGING
 # --------------------------------------
 
-a.block_to_short_score()
-calliope.SlurCells()(a.score.staff_groups("short_score"))
+# a.block_to_short_score()
+# calliope.SlurCells()(a.score.staff_groups("short_score"))
 
-a.score.illustrate_me(
-    as_midi=True
-    )
+# a.score.illustrate_me(
+#     as_midi=True
+#     )
 
 
 # a.score.illustrate_me(

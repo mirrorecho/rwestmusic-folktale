@@ -1,12 +1,10 @@
 import abjad, calliope
 
 from folktale.scores.score import FolktaleScore
-# from folktale.stories.clang import ClangStory
-from folktale.stories.arranger import Arranger
+from folktale.stories import arranger 
 from folktale.libraries import tally_apps
 from folktale.stories import move_stack
 from folktale.stories import sing_stack
-
 
 from folktale.libraries import pitch_range_helpers
 
@@ -49,7 +47,45 @@ def show_final_block():
         as_midi=True,
         )
 
-show_final_block()
+# --------------------------------------
+
+a = arranger.Arranger(
+    line_block = FINAL_BLOCK_D,
+    # chords_line =  move_stack.sing_chords_line(),
+    )
+
+class FluteTransformD(calliope.Transform):
+    def transform(self, selectable, **kwargs):
+        for c in selectable.cells:
+            calliope.Poke(selection=c.note_events[:2])(c)
+            c.note_events[0].tag("-")
+            c.note_events[1].tag(".")
+
+class OboeTransformD(calliope.Transform):
+    def transform(self, selectable, **kwargs):
+        for c in selectable.cells:
+            calliope.Poke(selection=c.note_events[1:3])(c)
+            c.note_events[:2].tag(".")
+
+a.line_to_staff(1, "flute", 
+    transforms = ( FluteTransformD(), )
+    )
+a.line_to_staff(2, "oboe", 
+    transforms = ( OboeTransformD(), )
+    )
+
+a.line_to_staff(0, "piano1", 
+    transforms=(calliope.SlurCells(),)
+    )
+a.line_to_staff(4, "piano2", 
+    transforms=(calliope.SlurCells(),)
+    )
+
+a.block_to_short_score()
+
+a.score.illustrate_me(
+    as_midi=True
+    )
 
 
 # a = Arranger(

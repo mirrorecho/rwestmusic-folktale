@@ -56,6 +56,8 @@ def show_final_block():
         )
 # show_final_block()
 
+# --------------------------------------
+
 a = arranger.Arranger(
     line_block = FINAL_BLOCK_C,
     # chords_line =  move_stack.sing_chords_line(),

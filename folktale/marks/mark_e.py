@@ -1,8 +1,7 @@
 import abjad, calliope
 
 from folktale.scores.score import FolktaleScore
-# from folktale.stories.clang import ClangStory
-from folktale.stories.arranger import Arranger
+from folktale.stories import arranger 
 from folktale.libraries import tally_apps
 from folktale.stories import move_stack
 from folktale.stories import sing_stack
@@ -61,15 +60,41 @@ def show_final_block():
         as_midi=True
         )
 
-show_final_block()
+# --------------------------------------
+
+a = arranger.Arranger(
+    line_block = FINAL_BLOCK_E,
+    )
+
+a.line_to_staff(0, "piano1", 
+    transforms=(calliope.SlurCells(),)
+    )
+a.line_to_staff(6, "piano2", 
+    transforms=(
+        calliope.Transpose(interval=-12),
+        calliope.SlurCells(),
+        )
+    )
+
+# show_final_block()
+
+def decorate_short_score():
+    calliope.Label()(a.score.staff_groups["short_score"][0].phrases)
+    calliope.PhrasePhrases()(a.score.staff_groups["short_score"][0])
+    calliope.Label()(a.score.staff_groups["short_score"][1].cells)
+    calliope.SlurCells()(a.score.staff_groups["short_score"][1])
+    calliope.Label()(a.score.staff_groups["short_score"][2].events)
+
+a.block_to_short_score()
+decorate_short_score()
+a.score.illustrate_me(
+    as_midi=True
+    )
 
 
-# a = Arranger(
-#     line_block = move_stack.sing_crunch_lb(
-#         **MOVE_STACK_KWARGS
-#         ),
-#     # chords_line =  move_stack.sing_chords_line(),
-#     )
+# show_final_block()
+
+
 
 # a.block_to_short_score()
 

@@ -309,249 +309,178 @@
         }
         {
             <d'' f'' a''>8.
-            ^ \markup { 0 }
             [
             (
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <a' c'' e''>8
-            ^ \markup { 3 }
             ]
             <a' c'' e''>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <a' c'' e''>8
-            ^ \markup { 7 }
             ]
             <d'' f'' a''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <f' a' c''>8
-            ^ \markup { 10 }
             [
             r8
-            ^ \markup { 11 }
             ]
             )
             <d'' f'' a''>8.
-            ^ \markup { 0 }
             [
             (
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <d'' f'' a''>8
-            ^ \markup { 3 }
             ]
             <a' c'' e''>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <a' c'' e''>8
-            ^ \markup { 7 }
             ]
             <d'' f'' a''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <f' a' c''>8
-            ^ \markup { 10 }
             [
             r8
-            ^ \markup { 11 }
             ]
             )
             <c' e' g'>8
-            ^ \markup { 0 }
             [
             (
             <f' a' c''>8
-            ^ \markup { 1 }
             ]
             <f' a' c''>8
-            ^ \markup { 2 }
             [
             r8
-            ^ \markup { 3 }
             ]
             <f' a' c''>8
-            ^ \markup { 4 }
             [
             <c' e' g'>8
-            ^ \markup { 5 }
             ]
             <c' e' g'>8
-            ^ \markup { 6 }
             [
             <c' e' g'>8
-            ^ \markup { 7 }
             ]
             <bf d' f'>8
-            ^ \markup { 8 }
             [
             <a' c'' e''>8
-            ^ \markup { 9 }
             ]
             <c' e' g'>4
-            ^ \markup { 10 }
             )
             <c' e' g'>8.
-            ^ \markup { 0 }
             [
             (
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <d' f' a'>8
-            ^ \markup { 3 }
             ]
             <d' f' a'>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <d' f' a'>8
-            ^ \markup { 7 }
             ]
             <g' bf' d''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <bf d' f'>8
-            ^ \markup { 10 }
             [
             r8
-            ^ \markup { 11 }
             ]
             r1
             r2
             )
             <f' a' c''>8.
-            ^ \markup { 0 }
             [
             (
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <c'' ef'' g''>8
-            ^ \markup { 3 }
             ]
             <g' bf' d''>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <g' bf' d''>8
-            ^ \markup { 7 }
             ]
             <c'' ef'' g''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 10 }
             [
             r8
-            ^ \markup { 11 }
             ]
             )
             <bf d' f'>8
-            ^ \markup { 0 }
             [
             (
             <ef' g' bf'>8
-            ^ \markup { 1 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 2 }
             [
             r8
-            ^ \markup { 3 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 4 }
             [
             <bf d' f'>8
-            ^ \markup { 5 }
             ]
             <bf d' f'>8
-            ^ \markup { 6 }
             [
             <bf d' f'>8
-            ^ \markup { 7 }
             ]
             <af c' ef'>8
-            ^ \markup { 8 }
             [
             <g' bf' d''>8
-            ^ \markup { 9 }
             ]
             <bf d' f'>4
-            ^ \markup { 10 }
             )
             <f' af' c''>8.
-            ^ \markup { 0 }
             [
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <c' ef' g'>8
-            ^ \markup { 3 }
             ]
             <c' ef' g'>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <c' ef' g'>8
-            ^ \markup { 7 }
             ]
             <f' af' c''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <af c' ef'>8
-            ^ \markup { 10 }
             [
             r8
             ]
@@ -561,144 +490,102 @@
             r1
             r1
             <g' b' d''>8.
-            ^ \markup { 0 }
             [
             (
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <a' c'' e''>8
-            ^ \markup { 3 }
             ]
             <a' c'' e''>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <a' c'' e''>8
-            ^ \markup { 7 }
             ]
             <d'' f'' a''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <f' a' c''>8
-            ^ \markup { 10 }
             [
             r8
-            ^ \markup { 11 }
             ]
             )
             <f' a' c''>8
-            ^ \markup { 0 }
             [
             (
             <bf' d'' f''>8
-            ^ \markup { 1 }
             ]
             <bf' d'' f''>8
-            ^ \markup { 2 }
             [
             r8
-            ^ \markup { 3 }
             ]
             <bf' d'' f''>8
-            ^ \markup { 4 }
             [
             <f' a' c''>8
-            ^ \markup { 5 }
             ]
             <f' a' c''>8
-            ^ \markup { 6 }
             [
             <f' a' c''>8
-            ^ \markup { 7 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 8 }
             [
             <d'' f'' a''>8
-            ^ \markup { 9 }
             ]
             <f' a' c''>4
-            ^ \markup { 10 }
             )
             <c'' ef'' g''>8.
-            ^ \markup { 0 }
             [
             (
             r16
-            ^ \markup { 1 }
             ]
             r8
             [
             <g' bf' d''>8
-            ^ \markup { 3 }
             ]
             <g' bf' d''>8.
-            ^ \markup { 4 }
             [
             r16
-            ^ \markup { 5 }
             ]
             r8
             [
             <g' bf' d''>8
-            ^ \markup { 7 }
             ]
             <c'' ef'' g''>8.
-            ^ \markup { 8 }
             [
             r16
-            ^ \markup { 9 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 10 }
             [
             r8
-            ^ \markup { 11 }
             ]
             )
             <bf d' f'>8
-            ^ \markup { 0 }
             [
             (
             <ef' g' bf'>8
-            ^ \markup { 1 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 2 }
             [
             r8
-            ^ \markup { 3 }
             ]
             <ef' g' bf'>8
-            ^ \markup { 4 }
             [
             <bf d' f'>8
-            ^ \markup { 5 }
             ]
             <bf d' f'>8
-            ^ \markup { 6 }
             [
             <bf d' f'>8
-            ^ \markup { 7 }
             ]
             <af c' ef'>8
-            ^ \markup { 8 }
             [
             <g' bf' d''>8
-            ^ \markup { 9 }
             ]
             <bf d' f'>4
-            ^ \markup { 10 }
             )
         }
     >>
