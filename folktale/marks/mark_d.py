@@ -51,7 +51,8 @@ def show_final_block():
 
 a = arranger.Arranger(
     line_block = FINAL_BLOCK_D,
-    # chords_line =  move_stack.sing_chords_line(),
+    rehearsal_mark_number = 4,
+    defined_length = 100,
     )
 
 class FluteTransformD(calliope.Transform):

@@ -65,6 +65,8 @@ def show_final_block():
 
 a = arranger.Arranger(
     line_block = FINAL_BLOCK_G,
+    rehearsal_mark_number = 7,
+    defined_length = 100,
     )
 
 a.line_to_staff(0, "piano1", 
@@ -109,8 +111,9 @@ def decorate_short_score():
 a.block_to_short_score()
 decorate_short_score()
 
-a.score.illustrate_me(
-    as_midi=True
+a.illustrate_score(
+    as_midi=True,
+    with_short_score=True
     )
 
 # --------------------------------------

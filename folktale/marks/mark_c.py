@@ -60,7 +60,8 @@ def show_final_block():
 
 a = arranger.Arranger(
     line_block = FINAL_BLOCK_C,
-    # chords_line =  move_stack.sing_chords_line(),
+    rehearsal_mark_number = 3,
+    defined_length = 64,
     )
 
 # a.staves["piano1"].append(move_chords_line)
@@ -94,9 +95,10 @@ Poke(selection=s0.phrases[3,4])(s0)
 
 # --------------------------------------
 
-# a.block_to_short_score()
-a.score.illustrate_me(
-    as_midi=True
+a.block_to_short_score()
+a.illustrate_score(
+    # as_midi=True
+    with_short_score = True
     )
 
 

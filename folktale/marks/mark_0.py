@@ -54,7 +54,8 @@ def get_line():
 class ClassClangBlock0(clang.ClangBlock):pass
 
 a = arranger.Arranger(
-    line_block = ClassClangBlock0(get_line())
+    line_block = ClassClangBlock0(get_line()),
+    defined_length = 100,
     )
 
 # --------------------------------------
@@ -69,8 +70,14 @@ a.line_to_staff(0, "piano2",
 
 a.score.staves["piano1"].note_events[0].tag("8va", "ff")
 a.score.staves["piano1"].note_events[-1].tag("8va!")
-a.score.staves["piano2"].clef = "treble"
+a.score.staves["piano2"].note_events[0].tag("treble")
+
+# JUST FOR TESTING PURPOSES:
+# a.score.staves["piano2"].note_events[4].tag("bass")
+
+# a.score.staves["piano2"].clef = "treble"
 a.score.staff_groups["piano"].note_events.tag(">")
+
 
 melody_line = a.line_block[1]
 
@@ -112,7 +119,7 @@ for p,p1 in zip(melody_line.phrases[3:-1], melody_line.phrases[4:]):
     oboe_line.append( calliope.Event(rest=True, beats=p[0].beats) )
     oboe_line.append( calliope.Event(pitch=p1.events[0].pitch, beats=p[1].beats) )
 
-a.score.staves["oboe"].append(oboe_line)
+a.score.segments["oboe"].append(oboe_line)
 
 a.line_to_staff(2, "violin1", 
     transforms=(
@@ -140,12 +147,19 @@ a.score.staves["viola"].note_events.tag(":16")
 # END STANDARD 0,A,B ARRANGING
 # --------------------------------------
 
-# a.block_to_short_score()
+a.block_to_short_score()
 # calliope.SlurCells()(a.score.staff_groups("short_score"))
 
-# a.score.illustrate_me(
-#     as_midi=True
+# a2 = arranger.Arranger()
+# a2.copy_score_staves(
+#     a.score,
+#     beat_length=100
 #     )
+
+a.illustrate_score(
+    # as_midi=True
+    with_short_score = True
+    )
 
 
 # a.score.illustrate_me(

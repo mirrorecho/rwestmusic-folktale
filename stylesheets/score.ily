@@ -1,5 +1,7 @@
 #(set-default-paper-size "tabloid" 'portrait)
-#(set-global-staff-size 22)
+
+% THIS CAUSES ERRORS ONLY SOMETOMES... WHY????!!!!!!!
+% #(set-global-staff-size 22)
 
 \header {
     composer = "Randall West"
@@ -39,7 +41,7 @@
 }
 
 \layout {
-    \set Score.markFormatter = #format-mark-circle-letters 
+    \set Score.markFormatter = #format-mark-circle-alphabet 
     \context {        
         \Score
         

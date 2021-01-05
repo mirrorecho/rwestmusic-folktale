@@ -61,7 +61,9 @@ def get_line():
 class ClassClangBlockA(clang.ClangBlock):pass
 
 a = arranger.Arranger(
-    line_block = ClassClangBlockA(get_line())
+    line_block = ClassClangBlockA(get_line()),
+    rehearsal_mark_number = 1,
+    defined_length = 100,
     )
 
 a.line_to_staff(0, "piano1", 
@@ -117,7 +119,7 @@ for p,p1 in zip(melody_line.phrases[3:-1], melody_line.phrases[4:]):
     oboe_line.append( calliope.Event(rest=True, beats=p[0].beats) )
     oboe_line.append( calliope.Event(pitch=p1.events[0].pitch, beats=p[1].beats) )
 
-a.score.staves["oboe"].append(oboe_line)
+a.score.segments["oboe"].append(oboe_line)
 
 a.line_to_staff(2, "violin1", 
     transforms=(

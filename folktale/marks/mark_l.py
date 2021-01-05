@@ -17,6 +17,8 @@ JIG_L = JigL(sing_line.SingLine()).transformed(
     calliope.Transpose(interval=-8)
     )
 
+JIG_L.phrases.setattrs(respell="sharps")
+
 
 def show_final_block():
     calliope.PhrasePhrases()(JIG_L)
@@ -32,6 +34,8 @@ def show_final_block():
 
 a = arranger.Arranger(
     line_block = JIG_L,
+    rehearsal_mark_number = 11,
+    defined_length = 48,
     )
 
 a.line_to_staff(3, "piano1", 
@@ -107,8 +111,9 @@ def decorate_short_score():
 a.block_to_short_score()
 decorate_short_score()
 
-a.score.illustrate_me(
-    as_midi=True
+a.illustrate_score(
+    as_midi=True,
+    with_short_score=True
     )
 
 # --------------------------------------

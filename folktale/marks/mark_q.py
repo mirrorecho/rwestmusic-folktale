@@ -14,6 +14,13 @@ from folktale.stories import jig
 from folktale.stories import harmony
 from folktale.stories import copland
 
+class MarkQ(calliope.Arrangement, FolktaleScore):
+    def get_short_score():
+        self.poke_to_staff()
+
+
+calliope.illustrate_me(MarkQ)
+
 
 class SingR(sing_line.SingBlock):
     pass
@@ -49,6 +56,32 @@ def show_final_block():
         )
 
 show_final_block()
+
+class ShortScoreQ(calliope.ShortScore):
+    staves = 5
+    clefs = ("treble","treble","treble","bass")
+
+class Arrangement(calliope.Arrangement, FolktaleScore):
+    short_score_staves = 5
+
+    def get_short_score(self):
+
+
+class Arrangement(calliope.FromSelectableFactory, FolktaleScore):
+    branch_type = calliope.Segment
+
+    def get_branch(self, node, *args, **kwargs):
+        return node(*args, **kwargs)
+
+    def get_branches(self, *args, **kwargs):
+        for s in self.staves:
+            s.append(calliope.Segment(
+                name = s.name,
+
+                ))
+        return self
+
+
 
 
 # a = Arranger(

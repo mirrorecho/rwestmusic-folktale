@@ -35,7 +35,7 @@
 %   }  
 
 % \layout {
-%     \set Score.markFormatter = #format-mark-circle-letters 
+%     \set Score.markFormatter = #format-mark-circle-alphabet 
 %     \context {        
 %         \Score
 %         \override MultiMeasureRest #'expand-limit = #1

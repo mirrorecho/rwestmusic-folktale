@@ -104,7 +104,9 @@ my_line_block[2].append(
     )
 
 a = arranger.Arranger(
-    line_block = my_line_block
+    line_block = my_line_block,
+    rehearsal_mark_number = 2,
+    defined_length = 100,
     )
 
 # --------------------------------------
@@ -162,7 +164,7 @@ for p,p1 in zip(melody_line.phrases[3:-1], melody_line.phrases[4:]):
     oboe_line.append( calliope.Event(rest=True, beats=p[0].beats) )
     oboe_line.append( calliope.Event(pitch=p1.events[0].pitch, beats=p[1].beats) )
 
-a.score.staves["oboe"].append(oboe_line)
+a.score.segments["oboe"].append(oboe_line)
 
 a.line_to_staff(2, "violin1", 
     transforms=(
@@ -198,7 +200,7 @@ a.score.staves["cello"].note_events.tag(":16")
 # END STANDARD 0,A,B ARRANGING
 # --------------------------------------
 
-a.block_to_short_score()
-a.score.illustrate_me(
-    as_midi=True
-    )
+# a.block_to_short_score()
+# a.score.illustrate_me(
+#     as_midi=True
+#     )

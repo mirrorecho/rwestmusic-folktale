@@ -62,6 +62,8 @@ def show_final_block():
 
 a = arranger.Arranger(
     line_block = FINAL_BLOCK_F,
+    rehearsal_mark_number = 6,
+    defined_length = 100,
     )
 
 # a.line_to_staff(0, "piano1", 
